@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Mic, Square, Play, RotateCcw, AlertTriangle } from 'lucide-react';
+import { Mic, Square, Play, RotateCcw, AlertTriangle, Folder } from 'lucide-react';
 
 const AudioRecorder = () => {
   // State management
@@ -8,17 +8,19 @@ const AudioRecorder = () => {
   const [audioBlob, setAudioBlob] = useState(null);
   const [currentSentence, setCurrentSentence] = useState(0);
   const [browserSupported, setBrowserSupported] = useState(true);
+  const [directoryName, setDirectoryName] = useState('');
+
+  // References
+  const mediaRecorderRef = useRef(null);
+  const audioChunksRef = useRef([]);
+  const audioRef = useRef(null);
+  const directoryHandleRef = useRef(null);
 
   // Check browser compatibility on mount
   useEffect(() => {
     const isFileSystemSupported = 'showSaveFilePicker' in window;
     setBrowserSupported(isFileSystemSupported);
   }, []);
-
-  // References
-  const mediaRecorderRef = useRef(null);
-  const audioChunksRef = useRef([]);
-  const audioRef = useRef(null);
 
   // Sample sentences - can be moved to external data source
   const sentences = [
@@ -47,6 +49,18 @@ const AudioRecorder = () => {
       if (Math.abs(data[i]) > threshold) return i;
     }
     return data.length - 1;
+  };
+
+  // Select directory for saving recordings
+  const selectDirectory = async () => {
+    try {
+      const dirHandle = await window.showDirectoryPicker();
+      directoryHandleRef.current = dirHandle;
+      setDirectoryName(dirHandle.name);
+      console.log('Selected directory:', dirHandle.name);
+    } catch (err) {
+      console.error('Error selecting directory:', err);
+    }
   };
 
   // Start recording function
@@ -100,55 +114,84 @@ const AudioRecorder = () => {
 
   // Save recording function
   const saveRecording = async (blob) => {
-    if (!userId) {
-      console.warn('No user ID provided, cannot save recording');
+    if (!userId || !directoryHandleRef.current) {
+      console.warn('Missing user ID or save directory');
       return;
     }
 
     console.log('Starting save process...');
     try {
-      // Create file handle for saving
-      const fileName = `${userId}_sentence${currentSentence + 1}.wav`;
-
-      // Use showSaveFilePicker to let user choose save location
-      const handle = await window.showSaveFilePicker({
-        suggestedName: fileName,
-        types: [{
-          description: 'Wave Audio File',
-          accept: { 'audio/wav': ['.wav'] },
-        }],
-      });
-
-      // Create a FileSystemWritableFileStream to write to
-      const writableStream = await handle.createWritable();
-
-      // Write the blob to the file
-      await writableStream.write(blob);
-      await writableStream.close();
-
-      console.log(`Recording saved as ${fileName}`);
-
-      // Save the trimmed version
-      const trimmedHandle = await window.showSaveFilePicker({
-        suggestedName: `${userId}_sentence${currentSentence + 1}_trimmed.wav`,
-        types: [{
-          description: 'Wave Audio File',
-          accept: { 'audio/wav': ['.wav'] },
-        }],
-      });
-
-      // Example of silence removal (basic implementation)
-      // In a production environment, you'd want a more sophisticated algorithm
+      // Convert to proper WAV format
       const audioContext = new AudioContext();
       const audioBuffer = await blob.arrayBuffer();
       const decodedBuffer = await audioContext.decodeAudioData(audioBuffer);
 
-      // Simple silence threshold detection
+      // Function to create WAV file
+      const createWavFile = (audioBuffer) => {
+        const numberOfChannels = audioBuffer.numberOfChannels;
+        const length = audioBuffer.length * numberOfChannels * 2; // 2 bytes per sample
+        const buffer = new ArrayBuffer(44 + length);
+        const view = new DataView(buffer);
+        const sampleRate = audioBuffer.sampleRate;
+
+        // WAV header
+        // "RIFF" chunk descriptor
+        writeString(view, 0, 'RIFF');
+        view.setUint32(4, 36 + length, true);
+        writeString(view, 8, 'WAVE');
+
+        // "fmt " sub-chunk
+        writeString(view, 12, 'fmt ');
+        view.setUint32(16, 16, true); // fmt chunk size
+        view.setUint16(20, 1, true); // audio format (1 for PCM)
+        view.setUint16(22, numberOfChannels, true);
+        view.setUint32(24, sampleRate, true);
+        view.setUint32(28, sampleRate * numberOfChannels * 2, true); // byte rate
+        view.setUint16(32, numberOfChannels * 2, true); // block align
+        view.setUint16(34, 16, true); // bits per sample
+
+        // "data" sub-chunk
+        writeString(view, 36, 'data');
+        view.setUint32(40, length, true);
+
+        // Write audio data
+        const offset = 44;
+        const channels = [];
+        for (let i = 0; i < numberOfChannels; i++) {
+          channels.push(audioBuffer.getChannelData(i));
+        }
+
+        for (let i = 0; i < audioBuffer.length; i++) {
+          for (let channel = 0; channel < numberOfChannels; channel++) {
+            const sample = Math.max(-1, Math.min(1, channels[channel][i]));
+            const int16 = sample < 0 ? sample * 0x8000 : sample * 0x7FFF;
+            view.setInt16(offset + (i * numberOfChannels + channel) * 2, int16, true);
+          }
+        }
+
+        return new Blob([buffer], { type: 'audio/wav' });
+      };
+
+      const writeString = (view, offset, string) => {
+        for (let i = 0; i < string.length; i++) {
+          view.setUint8(offset + i, string.charCodeAt(i));
+        }
+      };
+
+      // Save original recording
+      const fileName = `${userId}_sentence${currentSentence + 1}.wav`;
+      const wavBlob = createWavFile(decodedBuffer);
+      const fileHandle = await directoryHandleRef.current.getFileHandle(fileName, { create: true });
+      const writableStream = await fileHandle.createWritable();
+      await writableStream.write(wavBlob);
+      await writableStream.close();
+      console.log(`Recording saved as ${fileName}`);
+
+      // Process trimmed version
       const threshold = 0.01;
       const startIndex = findFirstNonSilence(decodedBuffer.getChannelData(0), threshold);
       const endIndex = findLastNonSilence(decodedBuffer.getChannelData(0), threshold);
 
-      // Create new buffer without silence
       const trimmedBuffer = audioContext.createBuffer(
         decodedBuffer.numberOfChannels,
         endIndex - startIndex,
@@ -163,23 +206,15 @@ const AudioRecorder = () => {
         );
       }
 
-      // Convert trimmed buffer back to a blob
-      const trimmedBlob = await new Promise(resolve => {
-        const mediaStreamSource = audioContext.createMediaStreamDestination();
-        const sourceNode = audioContext.createBufferSource();
-        sourceNode.buffer = trimmedBuffer;
-        sourceNode.connect(mediaStreamSource);
-        sourceNode.start(0);
+      // Save trimmed version
+      const trimmedFileName = `${userId}_sentence${currentSentence + 1}_trimmed.wav`;
+      const trimmedWavBlob = createWavFile(trimmedBuffer);
+      const trimmedFileHandle = await directoryHandleRef.current.getFileHandle(trimmedFileName, { create: true });
+      const trimmedWritableStream = await trimmedFileHandle.createWritable();
+      await trimmedWritableStream.write(trimmedWavBlob);
+      await trimmedWritableStream.close();
+      console.log(`Trimmed recording saved as ${trimmedFileName}`);
 
-        const mediaRecorder = new MediaRecorder(mediaStreamSource.stream);
-        const chunks = [];
-
-        mediaRecorder.ondataavailable = e => chunks.push(e.data);
-        mediaRecorder.onstop = () => resolve(new Blob(chunks, { type: 'audio/wav' }));
-
-        mediaRecorder.start();
-        setTimeout(() => mediaRecorder.stop(), trimmedBuffer.duration * 1000);
-      });
     } catch (err) {
       console.error('Error saving recording:', err);
     }
@@ -216,6 +251,25 @@ const AudioRecorder = () => {
         </div>
       )}
 
+      {/* Directory Selection */}
+      <div className="space-y-2">
+        <div className="flex items-center justify-between">
+          <div>
+            <label className="block text-sm font-medium">Save Location:</label>
+            <p className="text-sm text-gray-500">
+              {directoryName ? `Selected: ${directoryName}` : 'No directory selected'}
+            </p>
+          </div>
+          <button
+            onClick={selectDirectory}
+            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 flex items-center"
+          >
+            <Folder className="h-4 w-4 mr-2" />
+            Select Folder
+          </button>
+        </div>
+      </div>
+
       {/* User ID Input */}
       <div className="space-y-2">
         <label className="block text-sm font-medium">User ID:</label>
@@ -238,7 +292,7 @@ const AudioRecorder = () => {
       <div className="flex justify-center space-x-4">
         <button
           onClick={recording ? stopRecording : startRecording}
-          disabled={!userId}
+          disabled={!userId || !directoryName}
           className={`p-4 rounded-full ${recording
             ? 'bg-red-500 hover:bg-red-600'
             : 'bg-blue-500 hover:bg-blue-600'
