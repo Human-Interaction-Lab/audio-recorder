@@ -27,6 +27,21 @@ const AudioRecorder = () => {
     "You can't judge a book by its cover."
   ];
 
+  // Helper functions for silence removal
+  const findFirstNonSilence = (data, threshold) => {
+    for (let i = 0; i < data.length; i++) {
+      if (Math.abs(data[i]) > threshold) return i;
+    }
+    return 0;
+  };
+
+  const findLastNonSilence = (data, threshold) => {
+    for (let i = data.length - 1; i >= 0; i--) {
+      if (Math.abs(data[i]) > threshold) return i;
+    }
+    return data.length - 1;
+  };
+
   // Start recording function
   const startRecording = async () => {
     try {
@@ -113,6 +128,14 @@ const AudioRecorder = () => {
         decodedBuffer.sampleRate
       );
 
+      for (let channel = 0; channel < decodedBuffer.numberOfChannels; channel++) {
+        const channelData = decodedBuffer.getChannelData(channel);
+        trimmedBuffer.copyToChannel(
+          channelData.slice(startIndex, endIndex),
+          channel
+        );
+      }
+
       // Convert trimmed buffer back to a blob
       const trimmedBlob = await new Promise(resolve => {
         const mediaStreamSource = audioContext.createMediaStreamDestination();
@@ -130,45 +153,24 @@ const AudioRecorder = () => {
         mediaRecorder.start();
         setTimeout(() => mediaRecorder.stop(), trimmedBuffer.duration * 1000);
       });
+    } catch (err) {
+      console.error('Error saving recording:', err);
+    }
+  };
 
-      for (let channel = 0; channel < decodedBuffer.numberOfChannels; channel++) {
-        const channelData = decodedBuffer.getChannelData(channel);
-        trimmedBuffer.copyToChannel(
-          channelData.slice(startIndex, endIndex),
-          channel
-        );
-      }
-    };
+  // Navigation functions
+  const nextSentence = () => {
+    if (currentSentence < sentences.length - 1) {
+      setCurrentSentence(curr => curr + 1);
+      setAudioBlob(null);
+    }
+  };
 
-    // Helper functions for silence removal
-    const findFirstNonSilence = (data, threshold) => {
-      for (let i = 0; i < data.length; i++) {
-        if (Math.abs(data[i]) > threshold) return i;
-      }
-      return 0;
-    };
-
-    const findLastNonSilence = (data, threshold) => {
-      for (let i = data.length - 1; i >= 0; i--) {
-        if (Math.abs(data[i]) > threshold) return i;
-      }
-      return data.length - 1;
-    };
-
-    // Navigation functions
-    const nextSentence = () => {
-      if (currentSentence < sentences.length - 1) {
-        setCurrentSentence(curr => curr + 1);
-        setAudioBlob(null);
-      }
-    };
-
-    const previousSentence = () => {
-      if (currentSentence > 0) {
-        setCurrentSentence(curr => curr - 1);
-        setAudioBlob(null);
-      }
-    };
+  const previousSentence = () => {
+    if (currentSentence > 0) {
+      setCurrentSentence(curr => curr - 1);
+      setAudioBlob(null);
+    }
   };
 
   return (
