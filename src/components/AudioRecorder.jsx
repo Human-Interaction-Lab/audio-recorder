@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Mic, Square, Play, RotateCcw } from 'lucide-react';
+import { Mic, Square, Play, RotateCcw, AlertTriangle } from 'lucide-react';
 
 const AudioRecorder = () => {
   // State management
@@ -7,6 +7,13 @@ const AudioRecorder = () => {
   const [recording, setRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const [currentSentence, setCurrentSentence] = useState(0);
+  const [browserSupported, setBrowserSupported] = useState(true);
+
+  // Check browser compatibility on mount
+  useEffect(() => {
+    const isFileSystemSupported = 'showSaveFilePicker' in window;
+    setBrowserSupported(isFileSystemSupported);
+  }, []);
 
   // References
   const mediaRecorderRef = useRef(null);
@@ -55,17 +62,24 @@ const AudioRecorder = () => {
         }
       };
 
-      mediaRecorderRef.current.onstop = () => {
+      mediaRecorderRef.current.onstop = async () => {
+        console.log('Recording stopped, processing audio...');
         const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
         setAudioBlob(audioBlob);
 
         // Create audio URL for playback
         if (audioRef.current) {
-          audioRef.current.src = URL.createObjectURL(audioBlob);
+          const url = URL.createObjectURL(audioBlob);
+          audioRef.current.src = url;
+          console.log('Audio ready for playback');
         }
 
-        // Save the recording
-        saveRecording(audioBlob);
+        try {
+          // Save the recording
+          await saveRecording(audioBlob);
+        } catch (error) {
+          console.error('Error in onstop handler:', error);
+        }
       };
 
       mediaRecorderRef.current.start();
@@ -86,8 +100,12 @@ const AudioRecorder = () => {
 
   // Save recording function
   const saveRecording = async (blob) => {
-    if (!userId) return;
+    if (!userId) {
+      console.warn('No user ID provided, cannot save recording');
+      return;
+    }
 
+    console.log('Starting save process...');
     try {
       // Create file handle for saving
       const fileName = `${userId}_sentence${currentSentence + 1}.wav`;
@@ -109,6 +127,15 @@ const AudioRecorder = () => {
       await writableStream.close();
 
       console.log(`Recording saved as ${fileName}`);
+
+      // Save the trimmed version
+      const trimmedHandle = await window.showSaveFilePicker({
+        suggestedName: `${userId}_sentence${currentSentence + 1}_trimmed.wav`,
+        types: [{
+          description: 'Wave Audio File',
+          accept: { 'audio/wav': ['.wav'] },
+        }],
+      });
 
       // Example of silence removal (basic implementation)
       // In a production environment, you'd want a more sophisticated algorithm
@@ -175,6 +202,20 @@ const AudioRecorder = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6">
+      {/* Browser Compatibility Warning */}
+      {!browserSupported && (
+        <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mb-4 rounded">
+          <div className="flex items-center mb-2">
+            <AlertTriangle className="h-5 w-5 mr-2" />
+            <p className="font-bold">Browser Compatibility Issue</p>
+          </div>
+          <p>
+            Your browser doesn't support all required features. Please use Chrome, Edge, or Opera for full functionality.
+            Current features like recording and playback will work, but saving files may be limited.
+          </p>
+        </div>
+      )}
+
       {/* User ID Input */}
       <div className="space-y-2">
         <label className="block text-sm font-medium">User ID:</label>
