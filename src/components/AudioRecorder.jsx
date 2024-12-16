@@ -284,8 +284,8 @@ const AudioRecorder = () => {
 
       {/* Sentence Display */}
       <div className="p-4 bg-gray-50 rounded-lg">
-        <p className="text-lg font-medium">Sentence {currentSentence + 1} of {sentences.length}</p>
-        <p className="mt-2">{sentences[currentSentence]}</p>
+        <p className="text-base font-medium">Sentence {currentSentence + 1} of {sentences.length}</p>
+        <p className="mt-3 text-3xl">{sentences[currentSentence]}</p>
       </div>
 
       {/* Recording Controls */}
