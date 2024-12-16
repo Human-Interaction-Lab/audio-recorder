@@ -2,7 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Mic, Square, Play, RotateCcw, AlertTriangle, Folder, Check } from 'lucide-react';
 
 const AudioRecorder = () => {
+  // Add new state for recorded sentences
   const [recordedSentences, setRecordedSentences] = useState(new Set());
+
+  // Existing state management
   const [userId, setUserId] = useState('');
   const [recording, setRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
@@ -189,23 +192,32 @@ const AudioRecorder = () => {
       await writableStream.close();
       console.log(`Recording saved as ${fileName}`);
 
-      // Process trimmed version
+      // Process trimmed version with silence padding
       const threshold = 0.01;
       const startIndex = findFirstNonSilence(decodedBuffer.getChannelData(0), threshold);
       const endIndex = findLastNonSilence(decodedBuffer.getChannelData(0), threshold);
 
+      // Calculate padding samples based on sample rate
+      const silencePaddingStart = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
+      const silencePaddingEnd = Math.floor(decodedBuffer.sampleRate * 0.1);   // 100ms trim
+
+      // Create new buffer with padding
       const trimmedBuffer = audioContext.createBuffer(
         decodedBuffer.numberOfChannels,
-        endIndex - startIndex,
+        (endIndex - startIndex) + silencePaddingStart,  // Add start padding
         decodedBuffer.sampleRate
       );
 
+      // Fill the buffer with zeros (silence)
       for (let channel = 0; channel < decodedBuffer.numberOfChannels; channel++) {
-        const channelData = decodedBuffer.getChannelData(channel);
-        trimmedBuffer.copyToChannel(
-          channelData.slice(startIndex, endIndex),
-          channel
+        const channelData = trimmedBuffer.getChannelData(channel);
+        // First 500ms is already zeros (silence)
+        const audioData = decodedBuffer.getChannelData(channel).slice(
+          startIndex,
+          endIndex - silencePaddingEnd  // Trim last 100ms
         );
+        // Copy the audio data after the silence padding
+        channelData.set(audioData, silencePaddingStart);
       }
 
       // Save trimmed version
