@@ -227,7 +227,7 @@ const AudioRecorder = () => {
 
       // Calculate padding samples based on sample rate
       const silencePaddingStart = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
-      const silencePaddingEnd = Math.floor(decodedBuffer.sampleRate * 0.1);   // 100ms trim
+      // const silencePaddingEnd = Math.floor(decodedBuffer.sampleRate * 0.1);   // 100ms trim
 
       // Create new buffer with padding
       const trimmedBuffer = audioContext.createBuffer(
@@ -242,7 +242,7 @@ const AudioRecorder = () => {
         // First 500ms is already zeros (silence)
         const audioData = decodedBuffer.getChannelData(channel).slice(
           startIndex,
-          endIndex - silencePaddingEnd  // Trim last 100ms
+          endIndex - 0 // silencePaddingEnd  // Trim last 100ms
         );
         // Copy the audio data after the silence padding
         channelData.set(audioData, silencePaddingStart);
@@ -287,14 +287,14 @@ const AudioRecorder = () => {
   const previousSentence = () => handleNavigation('previous');
 
   // Helper function to get audio duration
-  const getAudioDuration = async (blob) => {
-    return new Promise((resolve, reject) => {
-      const audio = new Audio();
-      audio.onloadedmetadata = () => resolve(audio.duration);
-      audio.onerror = reject;
-      audio.src = URL.createObjectURL(blob);
-    });
-  };
+  // const getAudioDuration = async (blob) => {
+  //   return new Promise((resolve, reject) => {
+  //     const audio = new Audio();
+  //     audio.onloadedmetadata = () => resolve(audio.duration);
+  //     audio.onerror = reject;
+  //     audio.src = URL.createObjectURL(blob);
+  //   });
+  // };
 
   // Clean up function
   useEffect(() => {
