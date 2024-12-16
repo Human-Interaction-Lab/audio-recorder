@@ -66,11 +66,39 @@ const AudioRecorder = () => {
     }
   };
 
+  // State for recording status and errors
+  const [status, setStatus] = useState('idle'); // idle, recording, processing, error
+  const [error, setError] = useState(null);
+
   // Start recording function
   const startRecording = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      mediaRecorderRef.current = new MediaRecorder(stream);
+      setStatus('recording');
+      setError(null);
+
+      // Check for required inputs
+      if (!userId.trim()) {
+        throw new Error('Please enter a user ID');
+      }
+      if (!directoryHandleRef.current) {
+        throw new Error('Please select a save directory');
+      }
+
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: {
+          echoCancellation: true,
+          //noiseSuppression: true,
+          autoGainControl: true,
+          channelCount: 1 // Force mono recording
+        }
+      });
+
+      mediaRecorderRef.current = new MediaRecorder(stream, {
+        mimeType: MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+          ? 'audio/webm;codecs=opus'
+          : 'audio/webm'
+      });
+
       audioChunksRef.current = [];
 
       mediaRecorderRef.current.ondataavailable = (event) => {
@@ -258,8 +286,70 @@ const AudioRecorder = () => {
   const nextSentence = () => handleNavigation('next');
   const previousSentence = () => handleNavigation('previous');
 
+  // Helper function to get audio duration
+  const getAudioDuration = async (blob) => {
+    return new Promise((resolve, reject) => {
+      const audio = new Audio();
+      audio.onloadedmetadata = () => resolve(audio.duration);
+      audio.onerror = reject;
+      audio.src = URL.createObjectURL(blob);
+    });
+  };
+
+  // Clean up function
+  useEffect(() => {
+    return () => {
+      // Stop any ongoing recording when component unmounts
+      if (recording) {
+        stopRecording();
+      }
+      // Clean up any object URLs
+      if (audioRef.current?.src) {
+        URL.revokeObjectURL(audioRef.current.src);
+      }
+    };
+  }, [recording]);
+
+  // Add keyboard shortcuts
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.code === 'Space' && !event.repeat && !event.target.matches('input, textarea')) {
+        event.preventDefault();
+        if (recording) {
+          stopRecording();
+        } else {
+          startRecording();
+        }
+      } else if (event.code === 'ArrowLeft' && !event.repeat) {
+        previousSentence();
+      } else if (event.code === 'ArrowRight' && !event.repeat) {
+        nextSentence();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [recording]);
+
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6">
+      {/* Status Messages */}
+      {error && (
+        <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4 rounded">
+          <div className="flex items-center mb-2">
+            <AlertTriangle className="h-5 w-5 mr-2" />
+            <p className="font-bold">Error</p>
+          </div>
+          <p>{error}</p>
+        </div>
+      )}
+
+      {status === 'processing' && (
+        <div className="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-4 rounded">
+          <p>Processing audio...</p>
+        </div>
+      )}
+
       {/* Browser Compatibility Warning */}
       {!browserSupported && (
         <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mb-4 rounded">
