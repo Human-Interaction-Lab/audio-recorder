@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Mic, Square, Play, RotateCcw, AlertTriangle, Folder } from 'lucide-react';
+import { Mic, Square, Play, RotateCcw, AlertTriangle, Folder, Check } from 'lucide-react';
 
 const AudioRecorder = () => {
   // State management
@@ -9,6 +9,7 @@ const AudioRecorder = () => {
   const [currentSentence, setCurrentSentence] = useState(0);
   const [browserSupported, setBrowserSupported] = useState(true);
   const [directoryName, setDirectoryName] = useState('');
+  const [recordedSentences, setRecordedSentences] = useState(new Set());
 
   // References
   const mediaRecorderRef = useRef(null);
@@ -91,6 +92,8 @@ const AudioRecorder = () => {
         try {
           // Save the recording
           await saveRecording(audioBlob);
+          // Mark the sentence as recorded
+          setRecordedSentences(prev => new Set([...prev, currentSentence]));
         } catch (error) {
           console.error('Error in onstop handler:', error);
         }
@@ -282,9 +285,17 @@ const AudioRecorder = () => {
         />
       </div>
 
-      {/* Sentence Display */}
+      {/* Modified Sentence Display */}
       <div className="p-4 bg-gray-50 rounded-lg">
-        <p className="text-base font-medium">Sentence {currentSentence + 1} of {sentences.length}</p>
+        <div className="flex items-center justify-between">
+          <p className="text-base font-medium">Sentence {currentSentence + 1} of {sentences.length}</p>
+          {recordedSentences.has(currentSentence) && (
+            <div className="flex items-center text-green-600">
+              <Check className="h-5 w-5 mr-1" />
+              <span className="text-sm">Recorded</span>
+            </div>
+          )}
+        </div>
         <p className="mt-3 text-3xl">{sentences[currentSentence]}</p>
       </div>
 
