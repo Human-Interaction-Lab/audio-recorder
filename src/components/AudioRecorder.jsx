@@ -2,14 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Mic, Square, Play, RotateCcw, AlertTriangle, Folder, Check } from 'lucide-react';
 
 const AudioRecorder = () => {
-  // State management
+  const [recordedSentences, setRecordedSentences] = useState(new Set());
   const [userId, setUserId] = useState('');
   const [recording, setRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const [currentSentence, setCurrentSentence] = useState(0);
   const [browserSupported, setBrowserSupported] = useState(true);
   const [directoryName, setDirectoryName] = useState('');
-  const [recordedSentences, setRecordedSentences] = useState(new Set());
 
   // References
   const mediaRecorderRef = useRef(null);
@@ -224,19 +223,28 @@ const AudioRecorder = () => {
   };
 
   // Navigation functions
-  const nextSentence = () => {
-    if (currentSentence < sentences.length - 1) {
-      setCurrentSentence(curr => curr + 1);
-      setAudioBlob(null);
+  const handleNavigation = (direction) => {
+    // Stop recording if active
+    if (recording) {
+      stopRecording();
     }
+
+    // Clear current audio blob
+    setAudioBlob(null);
+
+    // Update sentence index
+    setCurrentSentence(curr => {
+      if (direction === 'next' && curr < sentences.length - 1) {
+        return curr + 1;
+      } else if (direction === 'previous' && curr > 0) {
+        return curr - 1;
+      }
+      return curr;
+    });
   };
 
-  const previousSentence = () => {
-    if (currentSentence > 0) {
-      setCurrentSentence(curr => curr - 1);
-      setAudioBlob(null);
-    }
-  };
+  const nextSentence = () => handleNavigation('next');
+  const previousSentence = () => handleNavigation('previous');
 
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6">
@@ -285,7 +293,7 @@ const AudioRecorder = () => {
         />
       </div>
 
-      {/* Modified Sentence Display */}
+      {/* Sentence Display */}
       <div className="p-4 bg-gray-50 rounded-lg">
         <div className="flex items-center justify-between">
           <p className="text-base font-medium">Sentence {currentSentence + 1} of {sentences.length}</p>
