@@ -405,7 +405,7 @@ const AudioRecorder = () => {
           <p className="text-base font-medium">
             Sentence {currentSentence + 1} of {currentCategorySentences.length}
           </p>
-          {recordedSentences.has(currentSentence) && (
+          {recordedSentences.has(currentSentenceData?.id) && (
             <div className="flex items-center text-green-600">
               <Check className="h-5 w-5 mr-1" />
               <span className="text-sm">Recorded</span>
