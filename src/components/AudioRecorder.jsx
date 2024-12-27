@@ -231,11 +231,12 @@ const AudioRecorder = () => {
 
       // Calculate padding samples based on sample rate
       const silencePaddingStart = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
+      const silencePaddingEnd = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
 
       // Create new buffer with padding
       const trimmedBuffer = audioContext.createBuffer(
         decodedBuffer.numberOfChannels,
-        (endIndex - startIndex) + silencePaddingStart,
+        (endIndex - startIndex) + silencePaddingStart + silencePaddingEnd,
         decodedBuffer.sampleRate
       );
 
@@ -429,7 +430,7 @@ const AudioRecorder = () => {
           {recording ? <Square size={24} /> : <Mic size={24} />}
         </button>
 
-        {audioBlob && (
+        {audioBlob && recordedSentences.has(currentSentenceData?.id) && (
           <button
             onClick={() => audioRef.current?.play()}
             className="p-4 rounded-full bg-green-500 hover:bg-green-600 text-white"
@@ -438,7 +439,8 @@ const AudioRecorder = () => {
           </button>
         )}
 
-        {audioBlob && (
+        {/* No longer need redo button}}
+        {audioBlob && recordedSentences.has(currentSentenceData?.id) && (
           <button
             onClick={() => setAudioBlob(null)}
             className="p-4 rounded-full bg-gray-500 hover:bg-gray-600 text-white"
@@ -446,6 +448,7 @@ const AudioRecorder = () => {
             <RotateCcw size={24} />
           </button>
         )}
+          */}
       </div>
 
       {/* Navigation Controls */}
@@ -457,13 +460,15 @@ const AudioRecorder = () => {
         >
           Previous
         </button>
-        <button
-          onClick={nextSentence}
-          disabled={currentSentence === sentences.length - 1}
-          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
-        >
-          Next
-        </button>
+        {recordedSentences.has(currentSentenceData?.id) && (
+          <button
+            onClick={nextSentence}
+            disabled={currentSentence === sentences.length - 1}
+            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+          >
+            Next
+          </button>
+        )}
       </div>
 
       {/* Hidden audio element for playback */}
