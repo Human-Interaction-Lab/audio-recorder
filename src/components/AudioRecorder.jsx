@@ -1,17 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Mic, Square, Play, RotateCcw, AlertTriangle, Folder, Check } from 'lucide-react';
+import { sentences } from './sentences';
 
 const AudioRecorder = () => {
-  // Add new state for recorded sentences
-  const [recordedSentences, setRecordedSentences] = useState(new Set());
+  // State for sentence category selection
+  const [selectedCategory, setSelectedCategory] = useState('IntellTesting');
+  const [currentSentenceData, setCurrentSentenceData] = useState(null);
 
-  // Existing state management
+  // State management
+  const [recordedSentences, setRecordedSentences] = useState(new Set());
   const [userId, setUserId] = useState('');
   const [recording, setRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const [currentSentence, setCurrentSentence] = useState(0);
   const [browserSupported, setBrowserSupported] = useState(true);
   const [directoryName, setDirectoryName] = useState('');
+  const [status, setStatus] = useState('idle'); // idle, recording, processing, error
+  const [error, setError] = useState(null);
 
   // References
   const mediaRecorderRef = useRef(null);
@@ -19,25 +24,24 @@ const AudioRecorder = () => {
   const audioRef = useRef(null);
   const directoryHandleRef = useRef(null);
 
+  // Get available categories from sentences object
+  const categories = Object.keys(sentences);
+
+  // Get current category's sentences
+  const currentCategorySentences = sentences[selectedCategory] || [];
+
   // Check browser compatibility on mount
   useEffect(() => {
     const isFileSystemSupported = 'showSaveFilePicker' in window;
     setBrowserSupported(isFileSystemSupported);
   }, []);
 
-  // Sample sentences - can be moved to external data source
-  const sentences = [
-    "The quick brown fox jumps over the lazy dog.",
-    "A watched pot never boils.",
-    "Actions speak louder than words.",
-    "Better late than never.",
-    "Every cloud has a silver lining.",
-    "Fortune favors the bold.",
-    "Practice makes perfect.",
-    "Time heals all wounds.",
-    "Where there's smoke there's fire.",
-    "You can't judge a book by its cover."
-  ];
+  // Update current sentence data when category or index changes
+  useEffect(() => {
+    if (currentCategorySentences.length > 0) {
+      setCurrentSentenceData(currentCategorySentences[currentSentence]);
+    }
+  }, [selectedCategory, currentSentence]);
 
   // Helper functions for silence removal
   const findFirstNonSilence = (data, threshold) => {
@@ -63,12 +67,9 @@ const AudioRecorder = () => {
       console.log('Selected directory:', dirHandle.name);
     } catch (err) {
       console.error('Error selecting directory:', err);
+      setError('Failed to select directory');
     }
   };
-
-  // State for recording status and errors
-  const [status, setStatus] = useState('idle'); // idle, recording, processing, error
-  const [error, setError] = useState(null);
 
   // Start recording function
   const startRecording = async () => {
@@ -87,7 +88,6 @@ const AudioRecorder = () => {
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: {
           echoCancellation: true,
-          //noiseSuppression: true,
           autoGainControl: true,
           channelCount: 1 // Force mono recording
         }
@@ -123,9 +123,12 @@ const AudioRecorder = () => {
           // Save the recording
           await saveRecording(audioBlob);
           // Mark the sentence as recorded
-          setRecordedSentences(prev => new Set([...prev, currentSentence]));
+          setRecordedSentences(prev => new Set([...prev, currentSentenceData.id]));
+          setStatus('idle');
         } catch (error) {
           console.error('Error in onstop handler:', error);
+          setStatus('error');
+          setError('Failed to process recording');
         }
       };
 
@@ -133,6 +136,8 @@ const AudioRecorder = () => {
       setRecording(true);
     } catch (err) {
       console.error('Error accessing microphone:', err);
+      setStatus('error');
+      setError(err.message || 'Failed to start recording');
     }
   };
 
@@ -147,8 +152,8 @@ const AudioRecorder = () => {
 
   // Save recording function
   const saveRecording = async (blob) => {
-    if (!userId || !directoryHandleRef.current) {
-      console.warn('Missing user ID or save directory');
+    if (!userId || !directoryHandleRef.current || !currentSentenceData) {
+      console.warn('Missing required data for saving');
       return;
     }
 
@@ -168,20 +173,19 @@ const AudioRecorder = () => {
         const sampleRate = audioBuffer.sampleRate;
 
         // WAV header
-        // "RIFF" chunk descriptor
         writeString(view, 0, 'RIFF');
         view.setUint32(4, 36 + length, true);
         writeString(view, 8, 'WAVE');
 
         // "fmt " sub-chunk
         writeString(view, 12, 'fmt ');
-        view.setUint32(16, 16, true); // fmt chunk size
-        view.setUint16(20, 1, true); // audio format (1 for PCM)
+        view.setUint32(16, 16, true);
+        view.setUint16(20, 1, true);
         view.setUint16(22, numberOfChannels, true);
         view.setUint32(24, sampleRate, true);
-        view.setUint32(28, sampleRate * numberOfChannels * 2, true); // byte rate
-        view.setUint16(32, numberOfChannels * 2, true); // block align
-        view.setUint16(34, 16, true); // bits per sample
+        view.setUint32(28, sampleRate * numberOfChannels * 2, true);
+        view.setUint16(32, numberOfChannels * 2, true);
+        view.setUint16(34, 16, true);
 
         // "data" sub-chunk
         writeString(view, 36, 'data');
@@ -211,8 +215,8 @@ const AudioRecorder = () => {
         }
       };
 
-      // Save original recording
-      const fileName = `${userId}_sentence${currentSentence + 1}.wav`;
+      // Save original recording with sentence ID in filename
+      const fileName = `${userId}_${currentSentenceData.id}.wav`;
       const wavBlob = createWavFile(decodedBuffer);
       const fileHandle = await directoryHandleRef.current.getFileHandle(fileName, { create: true });
       const writableStream = await fileHandle.createWritable();
@@ -227,29 +231,27 @@ const AudioRecorder = () => {
 
       // Calculate padding samples based on sample rate
       const silencePaddingStart = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
-      // const silencePaddingEnd = Math.floor(decodedBuffer.sampleRate * 0.1);   // 100ms trim
 
       // Create new buffer with padding
       const trimmedBuffer = audioContext.createBuffer(
         decodedBuffer.numberOfChannels,
-        (endIndex - startIndex) + silencePaddingStart,  // Add start padding
+        (endIndex - startIndex) + silencePaddingStart,
         decodedBuffer.sampleRate
       );
 
       // Fill the buffer with zeros (silence)
       for (let channel = 0; channel < decodedBuffer.numberOfChannels; channel++) {
         const channelData = trimmedBuffer.getChannelData(channel);
-        // First 500ms is already zeros (silence)
         const audioData = decodedBuffer.getChannelData(channel).slice(
           startIndex,
-          endIndex - 0 // silencePaddingEnd  // Trim last 100ms
+          endIndex
         );
         // Copy the audio data after the silence padding
         channelData.set(audioData, silencePaddingStart);
       }
 
-      // Save trimmed version
-      const trimmedFileName = `${userId}_sentence${currentSentence + 1}_trimmed.wav`;
+      // Save trimmed version with sentence ID in filename
+      const trimmedFileName = `${userId}_${currentSentenceData.id}_trimmed.wav`;
       const trimmedWavBlob = createWavFile(trimmedBuffer);
       const trimmedFileHandle = await directoryHandleRef.current.getFileHandle(trimmedFileName, { create: true });
       const trimmedWritableStream = await trimmedFileHandle.createWritable();
@@ -259,22 +261,19 @@ const AudioRecorder = () => {
 
     } catch (err) {
       console.error('Error saving recording:', err);
+      throw err;
     }
   };
 
   // Navigation functions
   const handleNavigation = (direction) => {
-    // Stop recording if active
     if (recording) {
       stopRecording();
     }
-
-    // Clear current audio blob
     setAudioBlob(null);
 
-    // Update sentence index
     setCurrentSentence(curr => {
-      if (direction === 'next' && curr < sentences.length - 1) {
+      if (direction === 'next' && curr < currentCategorySentences.length - 1) {
         return curr + 1;
       } else if (direction === 'previous' && curr > 0) {
         return curr - 1;
@@ -286,24 +285,12 @@ const AudioRecorder = () => {
   const nextSentence = () => handleNavigation('next');
   const previousSentence = () => handleNavigation('previous');
 
-  // Helper function to get audio duration
-  // const getAudioDuration = async (blob) => {
-  //   return new Promise((resolve, reject) => {
-  //     const audio = new Audio();
-  //     audio.onloadedmetadata = () => resolve(audio.duration);
-  //     audio.onerror = reject;
-  //     audio.src = URL.createObjectURL(blob);
-  //   });
-  // };
-
   // Clean up function
   useEffect(() => {
     return () => {
-      // Stop any ongoing recording when component unmounts
       if (recording) {
         stopRecording();
       }
-      // Clean up any object URLs
       if (audioRef.current?.src) {
         URL.revokeObjectURL(audioRef.current.src);
       }
@@ -359,10 +346,27 @@ const AudioRecorder = () => {
           </div>
           <p>
             Your browser doesn't support all required features. Please use Chrome, Edge, or Opera for full functionality.
-            Current features like recording and playback will work, but saving files may be limited.
           </p>
         </div>
       )}
+
+      {/* Category Selection */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium">Select Category:</label>
+        <select
+          value={selectedCategory}
+          onChange={(e) => {
+            setSelectedCategory(e.target.value);
+            setCurrentSentence(0);
+            // setRecordedSentences(new Set());
+          }}
+          className="w-full p-2 border rounded"
+        >
+          {categories.map(category => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </select>
+      </div>
 
       {/* Directory Selection */}
       <div className="space-y-2">
@@ -398,7 +402,9 @@ const AudioRecorder = () => {
       {/* Sentence Display */}
       <div className="p-4 bg-gray-50 rounded-lg">
         <div className="flex items-center justify-between">
-          <p className="text-base font-medium">Sentence {currentSentence + 1} of {sentences.length}</p>
+          <p className="text-base font-medium">
+            Sentence {currentSentence + 1} of {currentCategorySentences.length}
+          </p>
           {recordedSentences.has(currentSentence) && (
             <div className="flex items-center text-green-600">
               <Check className="h-5 w-5 mr-1" />
@@ -406,7 +412,8 @@ const AudioRecorder = () => {
             </div>
           )}
         </div>
-        <p className="mt-3 text-3xl">{sentences[currentSentence]}</p>
+        <p className="mt-2 text-sm text-gray-500">ID: {currentSentenceData?.id}</p>
+        <p className="mt-3 text-3xl">{currentSentenceData?.sentence}</p>
       </div>
 
       {/* Recording Controls */}
