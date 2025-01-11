@@ -2,1003 +2,643 @@ export const sentences = {
     IntellTesting: [
         {
             id: "Int01",
-            sentence: "These days a chicken leg is a rare dish"
+            sentence: "account for who could knock"
         },
         {
             id: "Int02",
-            sentence: "Rice is often served in round bowls"
+            sentence: "address her meeting time"
         },
         {
             id: "Int03",
-            sentence: "The box was thrown beside the parked truck"
+            sentence: "admit the gear beyond"
         },
         {
             id: "Int04",
-            sentence: "Four hours of steady work faced us"
+            sentence: "advance but sat appeal"
         },
         {
             id: "Int05",
-            sentence: "A large size in stockings is hard to sell"
+            sentence: "afraid beneath demand"
         },
         {
             id: "Int06",
-            sentence: "Kick the ball straight and follow through"
+            sentence: "amend estate approach"
         },
         {
             id: "Int07",
-            sentence: "The girl at the booth sold fifty bonds"
+            sentence: "and spoke behind her sin"
         },
         {
             id: "Int08",
-            sentence: "The swan dive was far short of perfect"
+            sentence: "appear to wait then turn"
         },
         {
             id: "Int09",
-            sentence: "Her purse was full of useless trash"
+            sentence: "assume to catch control"
         },
         {
             id: "Int10",
-            sentence: "Read verse out loud for pleasure"
+            sentence: "attack became concerned"
         },
         {
             id: "Int11",
-            sentence: "Hoist the load to your left shoulder"
+            sentence: "attend the trend success"
         },
         {
             id: "Int12",
-            sentence: "Note closely the size of the gas tank"
+            sentence: "avoid or beat command"
         },
         {
             id: "Int13",
-            sentence: "The young girl gave no clear response"
+            sentence: "award his drain away"
         },
         {
             id: "Int14",
-            sentence: "What joy there is in living"
+            sentence: "balance clamp and bottle"
         },
         {
             id: "Int15",
-            sentence: "Sickness kept him home the third week"
+            sentence: "beside a sunken bat"
         },
         {
             id: "Int16",
-            sentence: "Lift the square stone over the fence"
+            sentence: "bolder ground from justice"
         },
         {
             id: "Int17",
-            sentence: "The crooked maze failed to fool the mouse"
+            sentence: "bush is chosen after"
         },
         {
             id: "Int18",
-            sentence: "Adding fast leads to wrong sums"
+            sentence: "butcher in the middle"
         },
         {
             id: "Int19",
-            sentence: "A saw is a tool used for making boards"
+            sentence: "career despite research"
         },
         {
             id: "Int20",
-            sentence: "Place a rosebush near the porch steps"
+            sentence: "cheap control in paper"
         },
         {
             id: "Int21",
-            sentence: "Both lost their lives in the raging storm"
+            sentence: "commit such used advice"
         },
         {
             id: "Int22",
-            sentence: "He ran half way to the hardware store"
+            sentence: "confused but roared again"
         },
         {
             id: "Int23",
-            sentence: "The clock struck to mark the third period"
+            sentence: "connect the beer device"
         },
         {
             id: "Int24",
-            sentence: "The set of china hit the floor with a crash"
+            sentence: "constant willing walker"
         },
         {
             id: "Int25",
-            sentence: "A yacht slid around the point into the bay"
+            sentence: "cool the jar in private"
         },
         {
             id: "Int26",
-            sentence: "The walled town was seized without a fight"
+            sentence: "darker painted baskets"
         },
         {
             id: "Int27",
-            sentence: "The heart beat strongly and with firm strokes"
+            sentence: "define respect instead"
         },
         {
             id: "Int28",
-            sentence: "The navy attacked the big task force"
+            sentence: "distant leaking basement"
         },
         {
             id: "Int29",
-            sentence: "There are more than two factors here"
+            sentence: "divide across retreat"
         },
         {
             id: "Int30",
-            sentence: "Cut the pie into large parts"
+            sentence: "done with finest handle"
         },
         {
             id: "Int31",
-            sentence: "The slush lay deep along the street"
+            sentence: "embark or take her sheet"
         },
         {
             id: "Int32",
-            sentence: "A wisp of cloud hung in the blue air"
+            sentence: "for coke a great defeat"
         },
         {
             id: "Int33",
-            sentence: "The fin was sharp and cut the clear water"
+            sentence: "forget the joke below"
         },
         {
             id: "Int34",
-            sentence: "The play seems dull and quite stupid"
+            sentence: "frame her seed to answer"
         },
         {
             id: "Int35",
-            sentence: "Bail the boat to stop it from sinking"
+            sentence: "functions aim his acid"
         },
         {
             id: "Int36",
-            sentence: "A tusk is used to make costly gifts"
+            sentence: "had eaten junk and train"
         },
         {
             id: "Int37",
-            sentence: "Ten pins were set in order"
+            sentence: "her owners arm the phone"
         },
         {
             id: "Int38",
-            sentence: "Oak is strong and also gives shade"
+            sentence: "hold a page of fortune"
         },
         {
             id: "Int39",
-            sentence: "Open the crate but don't break the glass"
+            sentence: "increase a grade sedate"
         },
         {
             id: "Int40",
-            sentence: "Add the sum to the product of these three"
+            sentence: "indeed a tax ascent"
         },
         {
             id: "Int41",
-            sentence: "Act on these orders with great speed"
+            sentence: "its harmful note abounds"
         },
         {
             id: "Int42",
-            sentence: "Move the vat over the hot fire"
+            sentence: "kick a tad above them"
         },
         {
             id: "Int43",
-            sentence: "The pennant waved when the wind blew"
+            sentence: "listen final station"
         },
         {
             id: "Int44",
-            sentence: "Split the log with a quick sharp blow"
+            sentence: "mark a single ladder"
         },
         {
             id: "Int45",
-            sentence: "Weave the carpet on the right hand side"
+            sentence: "mate denotes a judgement"
         },
         {
             id: "Int46",
-            sentence: "Hemp is a weed found in parts of the tropics"
+            sentence: "may the same pursued it"
         },
         {
             id: "Int47",
-            sentence: "A lame back kept his score low"
+            sentence: "measure fame with legal"
         },
         {
             id: "Int48",
-            sentence: "The harder he tried the less he got done"
+            sentence: "mistake delight for heat"
         },
         {
             id: "Int49",
-            sentence: "The cup cracked and spilled its contents"
+            sentence: "mode campaign for budget"
         },
         {
             id: "Int50",
-            sentence: "Paste can cleanse the most dirty brass"
+            sentence: "model sad and local"
         },
         {
             id: "Int51",
-            sentence: "The tiny girl took off her hat"
+            sentence: "narrow seated member"
         },
         {
             id: "Int52",
-            sentence: "He said the same phrase thirty times"
+            sentence: "or spent sincere aside"
         },
         {
             id: "Int53",
-            sentence: "Two plus seven is less than ten"
+            sentence: "pain can follow agents"
         },
         {
             id: "Int54",
-            sentence: "Write a fond note to the friend you cherish"
+            sentence: "perceive sustained supplies"
         },
         {
             id: "Int55",
-            sentence: "We frown when events take a bad turn"
+            sentence: "pick a chain for action"
         },
         {
             id: "Int56",
-            sentence: "The young kid jumped the rusty gate"
+            sentence: "pooling pill or cattle"
         },
         {
             id: "Int57",
-            sentence: "Guess the results from the first scores"
+            sentence: "push her equal culture"
         },
         {
             id: "Int58",
-            sentence: "A salt pickle tastes fine with ham"
+            sentence: "rampant boasting captain"
         },
         {
             id: "Int59",
-            sentence: "These thistles bend in a high wind"
+            sentence: "remove and name for stake"
         },
         {
             id: "Int60",
-            sentence: "The spot on the blotter was made by green ink"
+            sentence: "resting older earring"
         },
         {
             id: "Int61",
-            sentence: "The cigar burned a hole in the desk top"
+            sentence: "rocking modern poster"
         },
         {
             id: "Int62",
-            sentence: "The empty flask stood on the tin tray"
+            sentence: "rode the lamp for teasing"
         },
         {
             id: "Int63",
-            sentence: "A speedy man can beat this track mark"
+            sentence: "round and bad for carpet"
         },
         {
             id: "Int64",
-            sentence: "The coffee stand is too high for the couch"
+            sentence: "rowing farther matters"
         },
         {
             id: "Int65",
-            sentence: "We tried to replace the coin but failed"
+            sentence: "seat for locking runners"
         },
         {
             id: "Int66",
-            sentence: "She sewed the torn coat quite neatly"
+            sentence: "secure but lease apart"
         },
         {
             id: "Int67",
-            sentence: "The sofa cushion is red and of light weight"
+            sentence: "signal breakfast pilot"
         },
         {
             id: "Int68",
-            sentence: "Drop the two when you add the figures"
+            sentence: "sinking rather tundra"
         },
         {
             id: "Int69",
-            sentence: "A filing case is now hard to buy"
+            sentence: "sparkle enter broken"
         },
         {
             id: "Int70",
-            sentence: "The office paint was a dull, sad tan"
+            sentence: "stable wrist and load it"
         },
         {
             id: "Int71",
-            sentence: "A shower of dirt fell from the hot pipes"
+            sentence: "submit his cash report"
         },
         {
             id: "Int72",
-            sentence: "Torn scraps littered the stone floor"
+            sentence: "support with dock and cheer"
         },
         {
             id: "Int73",
-            sentence: "Acid burns holes in wool cloth"
+            sentence: "target keeping season"
         },
         {
             id: "Int74",
-            sentence: "Eight miles of woodland burned to waste"
+            sentence: "technique but sent result"
         },
         {
             id: "Int75",
-            sentence: "The third act was dull and tired the players"
+            sentence: "thinking for the hearing"
         },
         {
             id: "Int76",
-            sentence: "We admire and love a good cook"
+            sentence: "to sort but fear inside"
         },
         {
             id: "Int77",
-            sentence: "There the flood mark is ten inches"
+            sentence: "transcend almost betrayed"
         },
         {
             id: "Int78",
-            sentence: "He carved a head from the round block of marble"
+            sentence: "unless escape can learn"
         },
         {
             id: "Int79",
-            sentence: "The fruit of a fig tree is apple shaped"
+            sentence: "unseen machines agree"
         },
         {
             id: "Int80",
-            sentence: "Where were they when the noise started"
+            sentence: "vital seats with wonder"
         },
         {
             id: "Int81",
-            sentence: "The paper box is full of thumb tacks"
+            sentence: "people bought such minor"
         },
         {
             id: "Int82",
-            sentence: "Sell your gift to a buyer at a good gain"
+            sentence: "world repeats with feelings"
         },
         {
             id: "Int83",
-            sentence: "The tongs lay beside the ice pail"
+            sentence: "orders fairly level"
         },
         {
             id: "Int84",
-            sentence: "Bring your best compass to the third class"
+            sentence: "mister types is fashion"
         },
         {
             id: "Int85",
-            sentence: "Farmers came in to thresh the oat crop"
+            sentence: "plenty please or causes"
         },
         {
             id: "Int86",
-            sentence: "Float the soap on top of the bath water"
+            sentence: "closer showing metal"
         },
         {
             id: "Int87",
-            sentence: "The hostess taught the new maid to serve"
+            sentence: "friendly moon was sectioned"
         },
         {
             id: "Int88",
-            sentence: "The cement had dried when he moved it"
+            sentence: "plan reduced its setting"
         },
         {
             id: "Int89",
-            sentence: "The fly made its way along the wall"
+            sentence: "both enjoyed was processed"
         },
         {
             id: "Int90",
-            sentence: "It is hard to erase blue or red ink"
+            sentence: "ancient leading students"
         },
         {
             id: "Int91",
-            sentence: "The wreck occurred by the bank on main street"
+            sentence: "refused percent to goal"
         },
         {
             id: "Int92",
-            sentence: "A pencil with black lead writes best"
+            sentence: "aware reviewed such trees"
         },
         {
             id: "Int93",
-            sentence: "Coax a young calf to drink from a bucket"
+            sentence: "derived extent with streets"
         },
         {
             id: "Int94",
-            sentence: "The lamp shone with a steady green flame"
+            sentence: "regards because had class"
         },
         {
             id: "Int95",
-            sentence: "They took the axe and the saw to the forest"
+            sentence: "intense perfects such coasts"
         },
         {
             id: "Int96",
-            sentence: "Jazz and swing fans like fast music"
+            sentence: "begins excess is near"
         },
         {
             id: "Int97",
-            sentence: "Slash the gold cloth into fine ribbons"
+            sentence: "create her spot of art"
         },
         {
             id: "Int98",
-            sentence: "They are pushed back each time they attack"
+            sentence: "obtain contracts from tasks"
         },
         {
             id: "Int99",
-            sentence: "A waxed floor makes us lose balance"
+            sentence: "effect his wage but stood"
         },
         {
             id: "Int100",
-            sentence: "The play began as soon as we sat down"
+            sentence: "refer to good from league"
         },
         {
             id: "Int101",
-            sentence: "The rush for funds reached its peak Tuesday"
+            sentence: "headed wheels with stories"
         },
         {
             id: "Int102",
-            sentence: "The box is held by a bright red snapper"
+            sentence: "each informed from flowers"
         },
         {
             id: "Int103",
-            sentence: "In some form or other we need fun"
+            sentence: "motion double garden"
         },
         {
             id: "Int104",
-            sentence: "The houses are built of red clay bricks"
+            sentence: "weather pure was surfaced"
         },
         {
             id: "Int105",
-            sentence: "These pills do less good than others"
+            sentence: "tension known from pleasure"
         },
         {
             id: "Int106",
-            sentence: "We are sure that one war is enough"
+            sentence: "rhythm under artist"
         },
         {
             id: "Int107",
-            sentence: "The cold drizzle will halt the bond drive"
+            sentence: "housing drawn in samples"
         },
         {
             id: "Int108",
-            sentence: "Shape the clay gently into block form"
+            sentence: "truth improved in shelters"
         },
         {
             id: "Int109",
-            sentence: "The mute muffled the high tones of the horn"
+            sentence: "fort believed such orders"
         },
         {
             id: "Int110",
-            sentence: "The old pan was covered with hard fudge"
+            sentence: "music useful rising"
         },
         {
             id: "Int111",
-            sentence: "The node on the stalk of wheat grew daily"
+            sentence: "unique exchange in holes"
         },
         {
             id: "Int112",
-            sentence: "Write fast if you want to finish early"
+            sentence: "around without such roads"
         },
         {
             id: "Int113",
-            sentence: "Slide the box into that empty space"
+            sentence: "arrived had land can scale"
         },
         {
             id: "Int114",
-            sentence: "The beam dropped down on the workmen's head"
+            sentence: "direct can sweet extreme"
         },
         {
             id: "Int115",
-            sentence: "Pink clouds floated with the breeze"
+            sentence: "degree prevents from games"
         },
         {
             id: "Int116",
-            sentence: "It is late morning on the old wall clock"
+            sentence: "conduct ideal had songs"
         },
         {
             id: "Int117",
-            sentence: "The last switch cannot be turned off"
+            sentence: "debate reply was mean"
         },
         {
             id: "Int118",
-            sentence: "The fight will end in just six minutes"
+            sentence: "permits achieved but lied"
         },
         {
             id: "Int119",
-            sentence: "The store walls were lined with colored frocks"
+            sentence: "had value plants to mind"
         },
         {
             id: "Int120",
-            sentence: "The peace league met to discuss their plans"
+            sentence: "extend but please his stones"
         },
         {
             id: "Int121",
-            sentence: "The rise to fame of a person takes luck"
+            sentence: "force of focus moment"
         },
         {
             id: "Int122",
-            sentence: "Paper is scarce, so write with much care"
+            sentence: "thrown had special office"
         },
         {
             id: "Int123",
-            sentence: "Time brings us many changes"
+            sentence: "absent fields did morning"
         },
         {
             id: "Int124",
-            sentence: "Men think and plan and sometimes act"
+            sentence: "lake is pressure sofa"
         },
         {
             id: "Int125",
-            sentence: "He smokes a big pipe with strong contents"
+            sentence: "wanted find the finger"
         },
         {
             id: "Int126",
-            sentence: "We need grain to keep our mules healthy"
+            sentence: "speaking clear is power"
         },
         {
             id: "Int127",
-            sentence: "Pack the records in a neat thin case"
+            sentence: "age of centered wagons"
         },
         {
             id: "Int128",
-            sentence: "The crunch of feet in the snow was the only sound"
+            sentence: "birth the notice symbol"
         },
         {
             id: "Int129",
-            sentence: "The copper bowl shone in the sun's rays"
+            sentence: "drove arrive the other"
         },
         {
             id: "Int130",
-            sentence: "Boards will warp unless kept dry"
+            sentence: "passing plus a factor"
         },
         {
             id: "Int131",
-            sentence: "The idea is to sew both edges straight"
+            sentence: "depend is longer sound"
         },
         {
             id: "Int132",
-            sentence: "Pages bound in cloth make a book"
+            sentence: "compare events of bank"
         },
         {
             id: "Int133",
-            sentence: "Women form less than half of the group"
+            sentence: "allow assured remains"
         },
         {
             id: "Int134",
-            sentence: "A gem in the rough needs work to polish"
+            sentence: "alone become restrained"
         },
         {
             id: "Int135",
-            sentence: "Code is used when secrets are sent"
+            sentence: "before his wish was strong"
         },
         {
             id: "Int136",
-            sentence: "Most of the news is easy for us to hear"
+            sentence: "present relief among"
         },
         {
             id: "Int137",
-            sentence: "Mince pie is a dish served to children"
+            sentence: "required attempt maintain"
         },
         {
             id: "Int138",
-            sentence: "A castle built from sand fails to endure"
+            sentence: "a reason guests contained"
         },
         {
             id: "Int139",
-            sentence: "Each penny shone like new"
+            sentence: "itself a band provides"
         },
         {
             id: "Int140",
-            sentence: "Our plans right now are hazy"
+            sentence: "improve in driving cloud"
         },
         {
             id: "Int141",
-            sentence: "The thaw came early and freed the stream"
+            sentence: "during pattern programs"
         },
         {
             id: "Int142",
-            sentence: "Plead to the council to free the poor thief"
+            sentence: "higher patient concept"
         },
         {
             id: "Int143",
-            sentence: "He crawled with care along the ledge"
+            sentence: "sight about this deeper"
         },
         {
             id: "Int144",
-            sentence: "It takes a lot of help to finish these"
+            sentence: "hundred printed license"
         },
         {
             id: "Int145",
-            sentence: "The fur of cats goes by many names"
+            sentence: "form object with knowing"
         },
         {
             id: "Int146",
-            sentence: "A sash of gold silk will trim her dress"
+            sentence: "question major nature"
         },
         {
             id: "Int147",
-            sentence: "The pup jerked the leash as he saw a feline shape"
+            sentence: "figure proves from normal"
         },
         {
             id: "Int148",
-            sentence: "Dip the pail once and let it settle"
+            sentence: "defend years to something"
         },
         {
             id: "Int149",
-            sentence: "Leave now and you will arrive on time"
+            sentence: "now return can money"
         },
         {
             id: "Int150",
-            sentence: "The blind man counted his old coins"
+            sentence: "deep conceived the feature"
         },
         {
             id: "Int151",
-            sentence: "The poor boy missed the boat again"
+            sentence: "suggest its price reserve"
         },
         {
             id: "Int152",
-            sentence: "A round mat will cover the dull spot"
+            sentence: "exam of joy began"
         },
         {
             id: "Int153",
-            sentence: "The red paper brightened the dim stage"
+            sentence: "assign exists perhaps"
         },
         {
             id: "Int154",
-            sentence: "Slide the bill between the two leaves"
+            sentence: "begun his crown belief"
         },
         {
             id: "Int155",
-            sentence: "We don't like to admit our small faults"
+            sentence: "complete it thought or troops"
         },
         {
             id: "Int156",
-            sentence: "The stitch will serve but needs to be shortened"
+            sentence: "this daughter presence rules"
         },
         {
             id: "Int157",
-            sentence: "The gloss on top made it unfit to read"
+            sentence: "recall had future through"
         },
         {
             id: "Int158",
-            sentence: "The store was jammed before the sale could start"
+            sentence: "surprise was might between"
         },
         {
             id: "Int159",
-            sentence: "It was a bad error on the part of the new judge"
+            sentence: "detail require such risk"
         },
         {
             id: "Int160",
-            sentence: "Bad nerves are jangled by a door slam"
-        },
-        {
-            id: "Int161",
-            sentence: "They sang the same tunes at each party"
-        },
-        {
-            id: "Int162",
-            sentence: "Pile the coal high in the shed corner"
-        },
-        {
-            id: "Int163",
-            sentence: "A gold vase is both rare and costly"
-        },
-        {
-            id: "Int164",
-            sentence: "A smatter of French is worse than none"
-        },
-        {
-            id: "Int165",
-            sentence: "Fake stones shine but cost little"
-        },
-        {
-            id: "Int166",
-            sentence: "Serve the hot rum to the tired horses"
-        },
-        {
-            id: "Int167",
-            sentence: "A cone costs five cents on Mondays"
-        },
-        {
-            id: "Int168",
-            sentence: "Jerk the dart from the cork target"
-        },
-        {
-            id: "Int169",
-            sentence: "Three for a dime, the young peddler cried"
-        },
-        {
-            id: "Int170",
-            sentence: "No hardship seemed to keep him sad"
-        },
-        {
-            id: "Int171",
-            sentence: "Grace makes up for lack of beauty"
-        },
-        {
-            id: "Int172",
-            sentence: "Once we stood beside the shore"
-        },
-        {
-            id: "Int173",
-            sentence: "A cold dip restores health and zest"
-        },
-        {
-            id: "Int174",
-            sentence: "There is a lag between thought and act"
-        },
-        {
-            id: "Int175",
-            sentence: "Hats are worn to tea and not to dinner"
-        },
-        {
-            id: "Int176",
-            sentence: "Screen the porch with woven straw mats"
-        },
-        {
-            id: "Int177",
-            sentence: "The dry wax protects the deep scratch"
-        },
-        {
-            id: "Int178",
-            sentence: "The smell of burned rags itches my nose"
-        },
-        {
-            id: "Int179",
-            sentence: "He wheeled the bike past the winding road"
-        },
-        {
-            id: "Int180",
-            sentence: "The desk and both chairs were painted tan"
-        },
-        {
-            id: "Int181",
-            sentence: "The stems of the tall glasses cracked and broke"
-        },
-        {
-            id: "Int182",
-            sentence: "The bills were mailed promptly on the tenth of the month"
-        },
-        {
-            id: "Int183",
-            sentence: "To have is better than to wait and hope"
-        },
-        {
-            id: "Int184",
-            sentence: "The music played on while they talked"
-        },
-        {
-            id: "Int185",
-            sentence: "He sent the figs, but kept the ripe cherries"
-        },
-        {
-            id: "Int186",
-            sentence: "The screen before the fire kept in the sparks"
-        },
-        {
-            id: "Int187",
-            sentence: "Thick glasses helped him read the print"
-        },
-        {
-            id: "Int188",
-            sentence: "The chair looked strong but had no bottom"
-        },
-        {
-            id: "Int189",
-            sentence: "A fur muff is stylish once more"
-        },
-        {
-            id: "Int190",
-            sentence: "We need an end of all such matter"
-        },
-        {
-            id: "Int191",
-            sentence: "We don't get much money but we have fun"
-        },
-        {
-            id: "Int192",
-            sentence: "He offered proof in the form of a large chart"
-        },
-        {
-            id: "Int193",
-            sentence: "A quart of milk is water for the most part"
-        },
-        {
-            id: "Int194",
-            sentence: "A man in a blue sweater sat at the desk"
-        },
-        {
-            id: "Int195",
-            sentence: "Their eyelids droop for want of sleep"
-        },
-        {
-            id: "Int196",
-            sentence: "A force equal to that would move the earth"
-        },
-        {
-            id: "Int197",
-            sentence: "We like to see clear weather"
-        },
-        {
-            id: "Int198",
-            sentence: "Take a chance and win a china doll"
-        },
-        {
-            id: "Int199",
-            sentence: "The water in this well is a source of good health"
-        },
-        {
-            id: "Int200",
-            sentence: "The little tales they tell are false"
-        },
-        {
-            id: "Int201",
-            sentence: "A big wet stain was on the round carpet"
-        },
-        {
-            id: "Int202",
-            sentence: "The kite dipped and swayed, but stayed aloft"
-        },
-        {
-            id: "Int203",
-            sentence: "The pleasant hours fly by much too soon"
-        },
-        {
-            id: "Int204",
-            sentence: "The room was crowded with a wild mob"
-        },
-        {
-            id: "Int205",
-            sentence: "She blushed when he gave her a white orchid"
-        },
-        {
-            id: "Int206",
-            sentence: "Neat plans fail without luck"
-        },
-        {
-            id: "Int207",
-            sentence: "The black trunk fell from the landing"
-        },
-        {
-            id: "Int208",
-            sentence: "The theft of the pearl pin was kept secret"
-        },
-        {
-            id: "Int209",
-            sentence: "The vast space stretched into the far distance"
-        },
-        {
-            id: "Int210",
-            sentence: "A rich farm is rare in this sandy waste"
-        },
-        {
-            id: "Int211",
-            sentence: "Flax makes a fine brand of paper"
-        },
-        {
-            id: "Int212",
-            sentence: "Hurdle the pit with the aid of a long pole"
-        },
-        {
-            id: "Int213",
-            sentence: "A strong bid may scare your partner stiff"
-        },
-        {
-            id: "Int214",
-            sentence: "Even a just cause needs power to win"
-        },
-        {
-            id: "Int215",
-            sentence: "Peep under the tent and see the clowns"
-        },
-        {
-            id: "Int216",
-            sentence: "A thing of small note can cause despair"
-        },
-        {
-            id: "Int217",
-            sentence: "Flood the mails with requests for this book"
-        },
-        {
-            id: "Int218",
-            sentence: "The pencil was cut to be sharp at both ends"
-        },
-        {
-            id: "Int219",
-            sentence: "Dill pickles are sour but taste"
-        },
-        {
-            id: "Int220",
-            sentence: "Either mud or dust are found at all times"
-        },
-        {
-            id: "Int221",
-            sentence: "The best method is to fix it in place with clips"
-        },
-        {
-            id: "Int222",
-            sentence: "Read just what the meter says"
-        },
-        {
-            id: "Int223",
-            sentence: "Fill your pack with bright trinkets for the poor"
-        },
-        {
-            id: "Int224",
-            sentence: "The small red neon lamp went out"
-        },
-        {
-            id: "Int225",
-            sentence: "Clams are small round soft and tasty"
-        },
-        {
-            id: "Int226",
-            sentence: "The line where the edges join was clean"
-        },
-        {
-            id: "Int227",
-            sentence: "Breathe deep and smell the piney air"
-        },
-        {
-            id: "Int228",
-            sentence: "A brown leather bag hung from its strap"
-        },
-        {
-            id: "Int229",
-            sentence: "Paint the sockets in the wall dull green"
-        },
-        {
-            id: "Int230",
-            sentence: "Brides fail where honest men work"
-        },
-        {
-            id: "Int231",
-            sentence: "The hilt of the sword was carved with fine designs"
-        },
-        {
-            id: "Int232",
-            sentence: "She was waiting at my front lawn"
-        },
-        {
-            id: "Int233",
-            sentence: "Prod the old mule with a crooked stick"
-        },
-        {
-            id: "Int234",
-            sentence: "It is a band of steel three inches wide"
-        },
-        {
-            id: "Int235",
-            sentence: "The pipe ran almost the length of the ditch"
-        },
-        {
-            id: "Int236",
-            sentence: "The weight of the package was seen on the high scale"
-        },
-        {
-            id: "Int237",
-            sentence: "Wake and rise, and step into the green outdoors"
-        },
-        {
-            id: "Int238",
-            sentence: "Hold the hammer near the end to drive the nail"
-        },
-        {
-            id: "Int239",
-            sentence: "They took their kids from the public school"
-        },
-        {
-            id: "Int240",
-            sentence: "Paper will dry out when wet"
-        },
-        {
-            id: "Int241",
-            sentence: "A sullen smile gets few friends"
-        },
-        {
-            id: "Int242",
-            sentence: "Slide the tray across the glass top"
-        },
-        {
-            id: "Int243",
-            sentence: "The cloud moved in a stately way and was gone"
-        },
-        {
-            id: "Int244",
-            sentence: "Set the piece here and say nothing"
-        },
-        {
-            id: "Int245",
-            sentence: "Dull stories make her laugh"
-        },
-        {
-            id: "Int246",
-            sentence: "A plea for funds seems to come again"
-        },
-        {
-            id: "Int247",
-            sentence: "There is a strong chance it will happen once more"
-        },
-        {
-            id: "Int248",
-            sentence: "Greet the new guests and leave quickly"
-        },
-        {
-            id: "Int249",
-            sentence: "Sweet words work better than fierce"
-        },
-        {
-            id: "Int250",
-            sentence: "The early phase of life moves fast"
+            sentence: "desire can bar accept"
         }
     ],
     Training: [
@@ -1359,270 +999,6 @@ export const sentences = {
             sentence: "Snowball purred contentedly, resting her head on Megan's arm."
         },
         {
-            id: "Trn_04_01",
-            sentence: "Every summer, Jake and his friends"
-        },
-        {
-            id: "Trn_04_02",
-            sentence: "visited the lake near his grandfather's cabin."
-        },
-        {
-            id: "Trn_04_03",
-            sentence: "The water sparkled under the bright sun,"
-        },
-        {
-            id: "Trn_04_04",
-            sentence: "and the tall trees swayed gently in the breeze."
-        },
-        {
-            id: "Trn_04_05",
-            sentence: "One afternoon, Jake decided to go fishing."
-        },
-        {
-            id: "Trn_04_06",
-            sentence: "He grabbed a rod, bait, and bucket,"
-        },
-        {
-            id: "Trn_04_07",
-            sentence: "then walked to the dock."
-        },
-        {
-            id: "Trn_04_08",
-            sentence: "Sitting quietly, he cast his line into the water"
-        },
-        {
-            id: "Trn_04_09",
-            sentence: "and waited and waited and waited."
-        },
-        {
-            id: "Trn_04_10",
-            sentence: "Suddenly, the rod jerked."
-        },
-        {
-            id: "Trn_04_11",
-            sentence: "Jake pulled hard,"
-        },
-        {
-            id: "Trn_04_12",
-            sentence: "and a shiny fish wriggled at the end of the line."
-        },
-        {
-            id: "Trn_04_13",
-            sentence: "He shouted, “I caught one!”"
-        },
-        {
-            id: "Trn_04_14",
-            sentence: "His friends ran over to see, cheering loudly."
-        },
-        {
-            id: "Trn_04_15",
-            sentence: "Jake carefully placed the fish in the bucket."
-        },
-        {
-            id: "Trn_04_16",
-            sentence: "“Maybe next time, I'll catch a bigger one,”"
-        },
-        {
-            id: "Trn_04_17",
-            sentence: "he said with a grin."
-        },
-        {
-            id: "Trn_04_18",
-            sentence: "Later that day, Jake returned to the cabin"
-        },
-        {
-            id: "Trn_04_19",
-            sentence: "and told his grandfather about the fish."
-        },
-        {
-            id: "Trn_04_20",
-            sentence: "His grandfather smiled and said,"
-        },
-        {
-            id: "Trn_04_21",
-            sentence: "“You've got the makings of a great fisherman!”"
-        },
-        {
-            id: "Trn_04_22",
-            sentence: "Jake beamed proudly,"
-        },
-        {
-            id: "Trn_04_23",
-            sentence: "excited to fish again tomorrow."
-        },
-        {
-            id: "Trn_05_01",
-            sentence: "It was baking day at Grandma’s house,"
-        },
-        {
-            id: "Trn_05_02",
-            sentence: "and the kitchen smelled wonderful."
-        },
-        {
-            id: "Trn_05_03",
-            sentence: "Emma and her brother, Luke, were excited to help."
-        },
-        {
-            id: "Trn_05_04",
-            sentence: "Grandma pulled out flour, sugar, eggs, and butter from the pantry."
-        },
-        {
-            id: "Trn_05_05",
-            sentence: "“We're making cookies today,” she said with a smile."
-        },
-        {
-            id: "Trn_05_06",
-            sentence: "Emma mixed the flour and sugar carefully,"
-        },
-        {
-            id: "Trn_05_07",
-            sentence: "while Luke cracked the eggs into a bowl."
-        },
-        {
-            id: "Trn_05_08",
-            sentence: "He accidentally got some shell in,"
-        },
-        {
-            id: "Trn_05_09",
-            sentence: "but Grandma laughed and said, “It's all part of baking.”"
-        },
-        {
-            id: "Trn_05_10",
-            sentence: "Soon, the dough was ready."
-        },
-        {
-            id: "Trn_05_11",
-            sentence: "Grandma rolled it out,"
-        },
-        {
-            id: "Trn_05_12",
-            sentence: "and Emma cut shapes—stars, hearts, and circles—with cookie cutters."
-        },
-        {
-            id: "Trn_05_13",
-            sentence: "Luke sprinkled sugar on top,"
-        },
-        {
-            id: "Trn_05_14",
-            sentence: "giggling as it scattered everywhere."
-        },
-        {
-            id: "Trn_05_15",
-            sentence: "“Luke!” Emma cried,"
-        },
-        {
-            id: "Trn_05_16",
-            sentence: "but Grandma said, “A little mess makes it fun.”"
-        },
-        {
-            id: "Trn_05_17",
-            sentence: "After the cookies baked,"
-        },
-        {
-            id: "Trn_05_18",
-            sentence: "they sat at the table and tasted their treats."
-        },
-        {
-            id: "Trn_05_19",
-            sentence: "“These are perfect!” Luke said, his mouth full."
-        },
-        {
-            id: "Trn_05_20",
-            sentence: "Grandma smiled and hugged them both."
-        },
-        {
-            id: "Trn_05_21",
-            sentence: "“Baking is better with helpers and laughter,” she said."
-        },
-        {
-            id: "Trn_06_01",
-            sentence: "The wind howled through the trees,"
-        },
-        {
-            id: "Trn_06_02",
-            sentence: "rattling the windows of the small house."
-        },
-        {
-            id: "Trn_06_03",
-            sentence: "Rain splattered heavily against the glass,"
-        },
-        {
-            id: "Trn_06_04",
-            sentence: "each drop echoing in the quiet room."
-        },
-        {
-            id: "Trn_06_05",
-            sentence: "Outside, flashes of lightning lit up the dark sky,"
-        },
-        {
-            id: "Trn_06_06",
-            sentence: "followed by the rumbling growl of thunder."
-        },
-        {
-            id: "Trn_06_07",
-            sentence: "Lily sat curled up on the couch,"
-        },
-        {
-            id: "Trn_06_08",
-            sentence: "a blanket pulled tightly around her shoulders."
-        },
-        {
-            id: "Trn_06_09",
-            sentence: "She stared at the shadows on the walls,"
-        },
-        {
-            id: "Trn_06_10",
-            sentence: "jumping with every crash of thunder."
-        },
-        {
-            id: "Trn_06_11",
-            sentence: "Her dog, Max, lay beside her, his ears perked up and his tail still."
-        },
-        {
-            id: "Trn_06_12",
-            sentence: "“It’s just a storm, Max,” Lily whispered, trying to sound calm."
-        },
-        {
-            id: "Trn_06_13",
-            sentence: "Max whined softly, inching closer to her."
-        },
-        {
-            id: "Trn_06_14",
-            sentence: "Another flash of lightning streaked across the sky,"
-        },
-        {
-            id: "Trn_06_15",
-            sentence: "filling the room with a blinding glow."
-        },
-        {
-            id: "Trn_06_16",
-            sentence: "A moment later, the power flickered and went out,"
-        },
-        {
-            id: "Trn_06_17",
-            sentence: "plunging the house into darkness."
-        },
-        {
-            id: "Trn_06_18",
-            sentence: "Lily froze, clutching the blanket tightly."
-        },
-        {
-            id: "Trn_06_19",
-            sentence: "Max barked at the darkness, his tail now wagging nervously."
-        },
-        {
-            id: "Trn_06_20",
-            sentence: "“It’s okay,” Lily repeated, more to herself than to Max."
-        },
-        {
-            id: "Trn_06_21",
-            sentence: "The storm raged on, loud and wild,"
-        },
-        {
-            id: "Trn_06_22",
-            sentence: "but Lily began to feel braver as Max curled up close, keeping her warm."
-        },
-        {
             id: "Trn_07_01",
             sentence: "On a bright Saturday afternoon,"
         },
@@ -1713,86 +1089,6 @@ export const sentences = {
         {
             id: "Trn_07_23",
             sentence: "We might even try a bigger kite and maybe chase a few more birds!”"
-        },
-        {
-            id: "Trn_08_01",
-            sentence: "Sam and his cousin Zoe spent the afternoon at the county fair."
-        },
-        {
-            id: "Trn_08_02",
-            sentence: "The sun shone brightly,"
-        },
-        {
-            id: "Trn_08_03",
-            sentence: "and the air smelled of popcorn, fried dough, and cotton candy."
-        },
-        {
-            id: "Trn_08_04",
-            sentence: "Zoe squealed with delight"
-        },
-        {
-            id: "Trn_08_05",
-            sentence: "as they watched a magician perform tricks near the entrance."
-        },
-        {
-            id: "Trn_08_06",
-            sentence: "Sam pointed and whispered,"
-        },
-        {
-            id: "Trn_08_07",
-            sentence: "“How did he make that scarf disappear?”"
-        },
-        {
-            id: "Trn_08_08",
-            sentence: "They wandered through rows of colorful booths,"
-        },
-        {
-            id: "Trn_08_09",
-            sentence: "playing games and winning tiny prizes."
-        },
-        {
-            id: "Trn_08_10",
-            sentence: "At one booth, Zoe tossed rings and won a stuffed bear,"
-        },
-        {
-            id: "Trn_08_11",
-            sentence: "while Sam tried his luck with a dart game."
-        },
-        {
-            id: "Trn_08_12",
-            sentence: "His dart sailed through the air and popped a balloon on the first try."
-        },
-        {
-            id: "Trn_08_13",
-            sentence: "“Bullseye!” Sam cheered."
-        },
-        {
-            id: "Trn_08_14",
-            sentence: "After exploring, they shared a plate of warm, sugary funnel cake."
-        },
-        {
-            id: "Trn_08_15",
-            sentence: "“This is the best day ever,” Zoe said,"
-        },
-        {
-            id: "Trn_08_16",
-            sentence: "her voice muffled by a bite of cake."
-        },
-        {
-            id: "Trn_08_17",
-            sentence: "As the sky darkened,"
-        },
-        {
-            id: "Trn_08_18",
-            sentence: "the Ferris wheel lit up with hundreds of twinkling lights."
-        },
-        {
-            id: "Trn_08_19",
-            sentence: "Sam and Zoe rode it together, soaring high above the fairgrounds."
-        },
-        {
-            id: "Trn_08_20",
-            sentence: "“Let's come back next year!” Sam said with a grin."
         }
     ],
     ListeningEffort: [
@@ -2957,394 +2253,6 @@ export const sentences = {
         {
             id: "Comp_06_24",
             sentence: "'but we're out of rye bread.'"
-        },
-        {
-            id: "Comp_07_01",
-            sentence: "It was two days before Christmas,"
-        },
-        {
-            id: "Comp_07_02",
-            sentence: "and Don Moore was in a crowded waiting room at the airport."
-        },
-        {
-            id: "Comp_07_03",
-            sentence: "He was impatient to be on his way."
-        },
-        {
-            id: "Comp_07_04",
-            sentence: "His brother, who he hadn't seen in three years,"
-        },
-        {
-            id: "Comp_07_05",
-            sentence: "was going to be at his parents' home for Christmas."
-        },
-        {
-            id: "Comp_07_06",
-            sentence: "The plane was supposed to leave at ten o'clock"
-        },
-        {
-            id: "Comp_07_07",
-            sentence: "but because of the weather, it was already an hour late."
-        },
-        {
-            id: "Comp_07_08",
-            sentence: "Finally, the plane arrived and people began getting in line."
-        },
-        {
-            id: "Comp_07_09",
-            sentence: "Then a woman announced"
-        },
-        {
-            id: "Comp_07_10",
-            sentence: "that there was not enough space on the plane"
-        },
-        {
-            id: "Comp_07_11",
-            sentence: "for all those who had tickets,"
-        },
-        {
-            id: "Comp_07_12",
-            sentence: "and everyone in the room groaned."
-        },
-        {
-            id: "Comp_07_13",
-            sentence: "The woman said that some people"
-        },
-        {
-            id: "Comp_07_14",
-            sentence: "would have to wait for the next plane"
-        },
-        {
-            id: "Comp_07_15",
-            sentence: "and she read off a list of names."
-        },
-        {
-            id: "Comp_07_16",
-            sentence: "Don's name was one of the ten that she read off."
-        },
-        {
-            id: "Comp_07_17",
-            sentence: "Immediately, people went over to the woman"
-        },
-        {
-            id: "Comp_07_18",
-            sentence: "and began arguing with her."
-        },
-        {
-            id: "Comp_07_19",
-            sentence: "When they had all left,"
-        },
-        {
-            id: "Comp_07_20",
-            sentence: "Don approached the woman."
-        },
-        {
-            id: "Comp_07_21",
-            sentence: "He told her that his name was on the list."
-        },
-        {
-            id: "Comp_07_22",
-            sentence: "'But, you see,' he continued, 'I'm flying to Denver"
-        },
-        {
-            id: "Comp_07_23",
-            sentence: "to do an emergency transplant operation this afternoon.'"
-        },
-        {
-            id: "Comp_07_24",
-            sentence: "The woman smiled and said, 'What a coincidence."
-        },
-        {
-            id: "Comp_07_25",
-            sentence: "You are the seventh person on the list"
-        },
-        {
-            id: "Comp_07_26",
-            sentence: "who is scheduled to do an emergency surgery this afternoon.'"
-        },
-        {
-            id: "Comp_08_01",
-            sentence: "George Smith was a quiet, French bookkeeper."
-        },
-        {
-            id: "Comp_08_02",
-            sentence: "None of his friends believed him when he told them"
-        },
-        {
-            id: "Comp_08_03",
-            sentence: "that he was going to walk across Niagara Falls on a tight rope."
-        },
-        {
-            id: "Comp_08_04",
-            sentence: "But here he was, one spring day looking at the rope"
-        },
-        {
-            id: "Comp_08_05",
-            sentence: "which was stretched 150 feet above the falls."
-        },
-        {
-            id: "Comp_08_06",
-            sentence: "George's wife stood beside him"
-        },
-        {
-            id: "Comp_08_07",
-            sentence: "trying to convince him not to try such a foolish stunt."
-        },
-        {
-            id: "Comp_08_08",
-            sentence: "She told him to think of his family."
-        },
-        {
-            id: "Comp_08_09",
-            sentence: "George just shook his head stubbornly"
-        },
-        {
-            id: "Comp_08_10",
-            sentence: "and told her that this was something that he had to do."
-        },
-        {
-            id: "Comp_08_11",
-            sentence: "Then he began to practice for the crossing"
-        },
-        {
-            id: "Comp_08_12",
-            sentence: "by walking back and forth on a narrow wooden beam."
-        },
-        {
-            id: "Comp_08_13",
-            sentence: "By the time George was ready to begin the crossing,"
-        },
-        {
-            id: "Comp_08_14",
-            sentence: "almost a thousand people had gathered to watch him."
-        },
-        {
-            id: "Comp_08_15",
-            sentence: "George stood uncertainly at the edge of the river."
-        },
-        {
-            id: "Comp_08_16",
-            sentence: "The long rope swayed silently in the breeze."
-        },
-        {
-            id: "Comp_08_17",
-            sentence: "Slowly, he set out across the rope"
-        },
-        {
-            id: "Comp_08_18",
-            sentence: "toward the Canadian side of the falls."
-        },
-        {
-            id: "Comp_08_19",
-            sentence: "Twenty minutes later,"
-        },
-        {
-            id: "Comp_08_20",
-            sentence: "a television reporter came up to him and asked,"
-        },
-        {
-            id: "Comp_08_21",
-            sentence: "'What are you going to do next?'"
-        },
-        {
-            id: "Comp_08_22",
-            sentence: "George thought for a moment and then answered,"
-        },
-        {
-            id: "Comp_08_23",
-            sentence: "'I guess I'll walk back across the rope."
-        },
-        {
-            id: "Comp_08_24",
-            sentence: "I left my car on the other side.'"
-        },
-        {
-            id: "Comp_09_01",
-            sentence: "Joe and Betty Adams were sitting in the living room"
-        },
-        {
-            id: "Comp_09_02",
-            sentence: "of their small house."
-        },
-        {
-            id: "Comp_09_03",
-            sentence: "Joe had just finished shoveling the walk."
-        },
-        {
-            id: "Comp_09_04",
-            sentence: "Now he was sitting with his shoes off"
-        },
-        {
-            id: "Comp_09_05",
-            sentence: "and his feet up on the footstool watching TV."
-        },
-        {
-            id: "Comp_09_06",
-            sentence: "Betty was busy knitting a sweater for their grandson"
-        },
-        {
-            id: "Comp_09_07",
-            sentence: "who is going to graduate from college next month."
-        },
-        {
-            id: "Comp_09_08",
-            sentence: "Joe looked over at his wife"
-        },
-        {
-            id: "Comp_09_09",
-            sentence: "and asked her if she would bring him a sandwich."
-        },
-        {
-            id: "Comp_09_10",
-            sentence: "Betty put down her knitting and went into the kitchen."
-        },
-        {
-            id: "Comp_09_11",
-            sentence: "Soon, she came back with a cheese sandwich on a plate."
-        },
-        {
-            id: "Comp_09_12",
-            sentence: "When the sandwich was gone,"
-        },
-        {
-            id: "Comp_09_13",
-            sentence: "Joe asked his wife to bring him the cookies"
-        },
-        {
-            id: "Comp_09_14",
-            sentence: "she had baked that afternoon."
-        },
-        {
-            id: "Comp_09_15",
-            sentence: "Betty went into the kitchen and came back with the cookies"
-        },
-        {
-            id: "Comp_09_16",
-            sentence: "and put them on the table beside her husband."
-        },
-        {
-            id: "Comp_09_17",
-            sentence: "Then she went back to her knitting."
-        },
-        {
-            id: "Comp_09_18",
-            sentence: "In a few minutes, Joe said that he was thirsty"
-        },
-        {
-            id: "Comp_09_19",
-            sentence: "and asked Betty to bring him a glass of water."
-        },
-        {
-            id: "Comp_09_20",
-            sentence: "Betty looked over at him and said,"
-        },
-        {
-            id: "Comp_09_21",
-            sentence: "“I really think that you should get things for yourself once in a while.”"
-        },
-        {
-            id: "Comp_09_22",
-            sentence: "Joe slowly got up and went into the kitchen."
-        },
-        {
-            id: "Comp_09_23",
-            sentence: "Soon he reappeared in the doorway and said,"
-        },
-        {
-            id: "Comp_09_24",
-            sentence: "“Dear, where do we keep the water?”"
-        },
-        {
-            id: "Comp_10_01",
-            sentence: "One day last fall,"
-        },
-        {
-            id: "Comp_10_02",
-            sentence: "several women on Willow Street decided to have a garage sale."
-        },
-        {
-            id: "Comp_10_03",
-            sentence: "They collected odds and ends from all over the neighborhood."
-        },
-        {
-            id: "Comp_10_04",
-            sentence: "Then they spent an entire day"
-        },
-        {
-            id: "Comp_10_05",
-            sentence: "putting prices on the things that they had collected."
-        },
-        {
-            id: "Comp_10_06",
-            sentence: "On the first day of the sale,"
-        },
-        {
-            id: "Comp_10_07",
-            sentence: "they put up signs at both ends of the blocks,"
-        },
-        {
-            id: "Comp_10_08",
-            sentence: "and another one at a nearby shopping center."
-        },
-        {
-            id: "Comp_10_09",
-            sentence: "Next, they made a pitcher of iced tea and sat down in a shady spot"
-        },
-        {
-            id: "Comp_10_10",
-            sentence: "beside the Anderson's garage to wait for their first customer."
-        },
-        {
-            id: "Comp_10_11",
-            sentence: "Soon, a man drove up in an old truck."
-        },
-        {
-            id: "Comp_10_12",
-            sentence: "He looked around and finally stopped"
-        },
-        {
-            id: "Comp_10_13",
-            sentence: "by a lumpy old mattress that was leaning against the wall."
-        },
-        {
-            id: "Comp_10_14",
-            sentence: "He gestured to it and asked how much they wanted for it."
-        },
-        {
-            id: "Comp_10_15",
-            sentence: "Mrs. Anderson told him that it wasn't for sale."
-        },
-        {
-            id: "Comp_10_16",
-            sentence: "Then she added that they were going to put it out"
-        },
-        {
-            id: "Comp_10_17",
-            sentence: "for the trash collectors the next day."
-        },
-        {
-            id: "Comp_10_18",
-            sentence: "The man asked if he could have it."
-        },
-        {
-            id: "Comp_10_19",
-            sentence: "Mrs. Anderson said that he could."
-        },
-        {
-            id: "Comp_10_20",
-            sentence: "Then she asked, “Why do you want such a terrible mattress?”"
-        },
-        {
-            id: "Comp_10_21",
-            sentence: "“Well,” he said,"
-        },
-        {
-            id: "Comp_10_22",
-            sentence: "“my no good father-in-law is coming to visit next week,"
-        },
-        {
-            id: "Comp_10_23",
-            sentence: "and I don't want him to get too comfortable.”"
         }
     ]
 };
