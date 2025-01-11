@@ -4,7 +4,7 @@ import { sentences } from './sentences';
 
 const AudioRecorder = () => {
   // State for sentence category selection
-  const [selectedCategory, setSelectedCategory] = useState('IntellTesting');
+  const [selectedCategory, setSelectedCategory] = useState('Training');
   const [currentSentenceData, setCurrentSentenceData] = useState(null);
 
   // State management
