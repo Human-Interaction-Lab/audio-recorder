@@ -225,40 +225,40 @@ const AudioRecorder = () => {
       console.log(`Recording saved as ${fileName}`);
 
       // Process trimmed version with silence padding
-      const threshold = 0.01;
-      const startIndex = findFirstNonSilence(decodedBuffer.getChannelData(0), threshold);
-      const endIndex = findLastNonSilence(decodedBuffer.getChannelData(0), threshold);
+      //const threshold = 0.01;
+      //const startIndex = findFirstNonSilence(decodedBuffer.getChannelData(0), threshold);
+      //const endIndex = findLastNonSilence(decodedBuffer.getChannelData(0), threshold);
 
       // Calculate padding samples based on sample rate
-      const silencePaddingStart = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
-      const silencePaddingEnd = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
+      //const silencePaddingStart = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
+      //const silencePaddingEnd = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
 
       // Create new buffer with padding
-      const trimmedBuffer = audioContext.createBuffer(
-        decodedBuffer.numberOfChannels,
-        (endIndex - startIndex) + silencePaddingStart + silencePaddingEnd,
-        decodedBuffer.sampleRate
-      );
+      //const trimmedBuffer = audioContext.createBuffer(
+      //  decodedBuffer.numberOfChannels,
+      //  (endIndex - startIndex) + silencePaddingStart + silencePaddingEnd,
+      //  decodedBuffer.sampleRate
+      //);
 
       // Fill the buffer with zeros (silence)
-      for (let channel = 0; channel < decodedBuffer.numberOfChannels; channel++) {
-        const channelData = trimmedBuffer.getChannelData(channel);
-        const audioData = decodedBuffer.getChannelData(channel).slice(
-          startIndex,
-          endIndex
-        );
-        // Copy the audio data after the silence padding
-        channelData.set(audioData, silencePaddingStart);
-      }
+      //for (let channel = 0; channel < decodedBuffer.numberOfChannels; channel++) {
+      //  const channelData = trimmedBuffer.getChannelData(channel);
+      //  const audioData = decodedBuffer.getChannelData(channel).slice(
+      //    startIndex,
+      //    endIndex
+      //  );
+      //  // Copy the audio data after the silence padding
+      //  channelData.set(audioData, silencePaddingStart);
+      //}
 
       // Save trimmed version with sentence ID in filename
-      const trimmedFileName = `${userId}_${currentSentenceData.id}_trimmed.wav`;
-      const trimmedWavBlob = createWavFile(trimmedBuffer);
-      const trimmedFileHandle = await directoryHandleRef.current.getFileHandle(trimmedFileName, { create: true });
-      const trimmedWritableStream = await trimmedFileHandle.createWritable();
-      await trimmedWritableStream.write(trimmedWavBlob);
-      await trimmedWritableStream.close();
-      console.log(`Trimmed recording saved as ${trimmedFileName}`);
+      //const trimmedFileName = `${userId}_${currentSentenceData.id}_trimmed.wav`;
+      //const trimmedWavBlob = createWavFile(trimmedBuffer);
+      //const trimmedFileHandle = await directoryHandleRef.current.getFileHandle(trimmedFileName, { create: true });
+      //const trimmedWritableStream = await trimmedFileHandle.createWritable();
+      //await trimmedWritableStream.write(trimmedWavBlob);
+      //await trimmedWritableStream.close();
+      //console.log(`Trimmed recording saved as ${trimmedFileName}`);
 
     } catch (err) {
       console.error('Error saving recording:', err);
