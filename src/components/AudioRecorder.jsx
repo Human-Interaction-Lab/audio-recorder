@@ -2,19 +2,23 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Mic, Square, Play, RotateCcw, AlertTriangle, Folder, Check } from 'lucide-react';
 import { sentences } from './sentences';
 
-const AudioRecorder = () => {
+const AudioRecorder = ({
+  userId: initialUserId,
+  onUserIdChange,
+  directoryHandle: initialDirectoryHandle,
+  onDirectorySelect
+}) => {
   // State for sentence category selection
   const [selectedCategory, setSelectedCategory] = useState('Training');
   const [currentSentenceData, setCurrentSentenceData] = useState(null);
 
   // State management
   const [recordedSentences, setRecordedSentences] = useState(new Set());
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState(initialUserId);
+  const [directoryName, setDirectoryName] = useState(initialDirectoryHandle?.name || '');
   const [recording, setRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const [currentSentence, setCurrentSentence] = useState(0);
-  const [browserSupported, setBrowserSupported] = useState(true);
-  const [directoryName, setDirectoryName] = useState('');
   const [status, setStatus] = useState('idle'); // idle, recording, processing, error
   const [error, setError] = useState(null);
 
@@ -22,19 +26,13 @@ const AudioRecorder = () => {
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
   const audioRef = useRef(null);
-  const directoryHandleRef = useRef(null);
+  const directoryHandleRef = useRef(initialDirectoryHandle);
 
   // Get available categories from sentences object
   const categories = Object.keys(sentences);
 
   // Get current category's sentences
   const currentCategorySentences = sentences[selectedCategory] || [];
-
-  // Check browser compatibility on mount
-  useEffect(() => {
-    const isFileSystemSupported = 'showSaveFilePicker' in window;
-    setBrowserSupported(isFileSystemSupported);
-  }, []);
 
   // Update current sentence data when category or index changes
   useEffect(() => {
@@ -44,19 +42,19 @@ const AudioRecorder = () => {
   }, [selectedCategory, currentSentence]);
 
   // Helper functions for silence removal
-  const findFirstNonSilence = (data, threshold) => {
-    for (let i = 0; i < data.length; i++) {
-      if (Math.abs(data[i]) > threshold) return i;
-    }
-    return 0;
-  };
+  //const findFirstNonSilence = (data, threshold) => {
+  //  for (let i = 0; i < data.length; i++) {
+  //    if (Math.abs(data[i]) > threshold) return i;
+  //  }
+  //  return 0;
+  //};
 
-  const findLastNonSilence = (data, threshold) => {
-    for (let i = data.length - 1; i >= 0; i--) {
-      if (Math.abs(data[i]) > threshold) return i;
-    }
-    return data.length - 1;
-  };
+  //const findLastNonSilence = (data, threshold) => {
+  //  for (let i = data.length - 1; i >= 0; i--) {
+  //    if (Math.abs(data[i]) > threshold) return i;
+  //  }
+  //  return data.length - 1;
+  //};
 
   // Select directory for saving recordings
   const selectDirectory = async () => {
@@ -64,11 +62,18 @@ const AudioRecorder = () => {
       const dirHandle = await window.showDirectoryPicker();
       directoryHandleRef.current = dirHandle;
       setDirectoryName(dirHandle.name);
+      onDirectorySelect(dirHandle);
       console.log('Selected directory:', dirHandle.name);
     } catch (err) {
       console.error('Error selecting directory:', err);
       setError('Failed to select directory');
     }
+  };
+
+  const handleUserIdChange = (e) => {
+    const newUserId = e.target.value;
+    setUserId(newUserId);
+    onUserIdChange(newUserId);
   };
 
   // Start recording function
@@ -394,7 +399,7 @@ const AudioRecorder = () => {
         <input
           type="text"
           value={userId}
-          onChange={(e) => setUserId(e.target.value)}
+          onChange={handleUserIdChange}
           className="w-full p-2 border rounded"
           placeholder="Enter user ID"
         />
