@@ -14,11 +14,6 @@ const AppContainer = () => {
     setShowRecorder(true);
   };
 
-  // Return to demographics form
-  const handleReturnToDemographics = () => {
-    setShowRecorder(false);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto pt-8">
