@@ -29,14 +29,6 @@ const AppContainer = () => {
           />
         ) : (
           <div>
-            <div className="mb-4 flex justify-end">
-              <button
-                onClick={handleReturnToDemographics}
-                className="px-4 py-2 text-sm bg-gray-200 rounded hover:bg-gray-300"
-              >
-                Return to Speaker Information
-              </button>
-            </div>
             <AudioRecorder
               initialUserId={userId}
               initialDirectoryHandle={directoryHandle}
