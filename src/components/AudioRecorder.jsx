@@ -1,24 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Mic, Square, Play, RotateCcw, AlertTriangle, Folder, Check } from 'lucide-react';
+import { Mic, Square, Play, AlertTriangle, Folder, Check } from 'lucide-react';
 import { sentences } from './sentences';
 
-const AudioRecorder = ({
-  userId: initialUserId,
-  onUserIdChange,
-  directoryHandle: initialDirectoryHandle,
-  onDirectorySelect
-}) => {
+const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
   // State for sentence category selection
   const [selectedCategory, setSelectedCategory] = useState('Training');
   const [currentSentenceData, setCurrentSentenceData] = useState(null);
 
   // State management
   const [recordedSentences, setRecordedSentences] = useState(new Set());
-  const [userId, setUserId] = useState(initialUserId);
+  const [userId, setUserId] = useState(initialUserId || '');
   const [directoryName, setDirectoryName] = useState(initialDirectoryHandle?.name || '');
   const [recording, setRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const [currentSentence, setCurrentSentence] = useState(0);
+  const [browserSupported, setBrowserSupported] = useState(true);
   const [status, setStatus] = useState('idle'); // idle, recording, processing, error
   const [error, setError] = useState(null);
 
@@ -41,28 +37,12 @@ const AudioRecorder = ({
     }
   }, [selectedCategory, currentSentence]);
 
-  // Helper functions for silence removal
-  //const findFirstNonSilence = (data, threshold) => {
-  //  for (let i = 0; i < data.length; i++) {
-  //    if (Math.abs(data[i]) > threshold) return i;
-  //  }
-  //  return 0;
-  //};
-
-  //const findLastNonSilence = (data, threshold) => {
-  //  for (let i = data.length - 1; i >= 0; i--) {
-  //    if (Math.abs(data[i]) > threshold) return i;
-  //  }
-  //  return data.length - 1;
-  //};
-
   // Select directory for saving recordings
   const selectDirectory = async () => {
     try {
       const dirHandle = await window.showDirectoryPicker();
       directoryHandleRef.current = dirHandle;
       setDirectoryName(dirHandle.name);
-      onDirectorySelect(dirHandle);
       console.log('Selected directory:', dirHandle.name);
     } catch (err) {
       console.error('Error selecting directory:', err);
@@ -71,9 +51,7 @@ const AudioRecorder = ({
   };
 
   const handleUserIdChange = (e) => {
-    const newUserId = e.target.value;
-    setUserId(newUserId);
-    onUserIdChange(newUserId);
+    setUserId(e.target.value);
   };
 
   // Start recording function
@@ -94,7 +72,7 @@ const AudioRecorder = ({
         audio: {
           echoCancellation: true,
           autoGainControl: true,
-          channelCount: 1 // Force mono recording
+          channelCount: 1
         }
       });
 
@@ -117,7 +95,6 @@ const AudioRecorder = ({
         const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
         setAudioBlob(audioBlob);
 
-        // Create audio URL for playback
         if (audioRef.current) {
           const url = URL.createObjectURL(audioBlob);
           audioRef.current.src = url;
@@ -125,9 +102,7 @@ const AudioRecorder = ({
         }
 
         try {
-          // Save the recording
           await saveRecording(audioBlob);
-          // Mark the sentence as recorded
           setRecordedSentences(prev => new Set([...prev, currentSentenceData.id]));
           setStatus('idle');
         } catch (error) {
@@ -164,15 +139,13 @@ const AudioRecorder = ({
 
     console.log('Starting save process...');
     try {
-      // Convert to proper WAV format
       const audioContext = new AudioContext();
       const audioBuffer = await blob.arrayBuffer();
       const decodedBuffer = await audioContext.decodeAudioData(audioBuffer);
 
-      // Function to create WAV file
       const createWavFile = (audioBuffer) => {
         const numberOfChannels = audioBuffer.numberOfChannels;
-        const length = audioBuffer.length * numberOfChannels * 2; // 2 bytes per sample
+        const length = audioBuffer.length * numberOfChannels * 2;
         const buffer = new ArrayBuffer(44 + length);
         const view = new DataView(buffer);
         const sampleRate = audioBuffer.sampleRate;
@@ -220,7 +193,7 @@ const AudioRecorder = ({
         }
       };
 
-      // Save original recording with sentence ID in filename
+      // Save recording with sentence ID in filename
       const fileName = `${userId}_${currentSentenceData.id}.wav`;
       const wavBlob = createWavFile(decodedBuffer);
       const fileHandle = await directoryHandleRef.current.getFileHandle(fileName, { create: true });
@@ -228,42 +201,6 @@ const AudioRecorder = ({
       await writableStream.write(wavBlob);
       await writableStream.close();
       console.log(`Recording saved as ${fileName}`);
-
-      // Process trimmed version with silence padding
-      //const threshold = 0.01;
-      //const startIndex = findFirstNonSilence(decodedBuffer.getChannelData(0), threshold);
-      //const endIndex = findLastNonSilence(decodedBuffer.getChannelData(0), threshold);
-
-      // Calculate padding samples based on sample rate
-      //const silencePaddingStart = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
-      //const silencePaddingEnd = Math.floor(decodedBuffer.sampleRate * 0.5); // 500ms
-
-      // Create new buffer with padding
-      //const trimmedBuffer = audioContext.createBuffer(
-      //  decodedBuffer.numberOfChannels,
-      //  (endIndex - startIndex) + silencePaddingStart + silencePaddingEnd,
-      //  decodedBuffer.sampleRate
-      //);
-
-      // Fill the buffer with zeros (silence)
-      //for (let channel = 0; channel < decodedBuffer.numberOfChannels; channel++) {
-      //  const channelData = trimmedBuffer.getChannelData(channel);
-      //  const audioData = decodedBuffer.getChannelData(channel).slice(
-      //    startIndex,
-      //    endIndex
-      //  );
-      //  // Copy the audio data after the silence padding
-      //  channelData.set(audioData, silencePaddingStart);
-      //}
-
-      // Save trimmed version with sentence ID in filename
-      //const trimmedFileName = `${userId}_${currentSentenceData.id}_trimmed.wav`;
-      //const trimmedWavBlob = createWavFile(trimmedBuffer);
-      //const trimmedFileHandle = await directoryHandleRef.current.getFileHandle(trimmedFileName, { create: true });
-      //const trimmedWritableStream = await trimmedFileHandle.createWritable();
-      //await trimmedWritableStream.write(trimmedWavBlob);
-      //await trimmedWritableStream.close();
-      //console.log(`Trimmed recording saved as ${trimmedFileName}`);
 
     } catch (err) {
       console.error('Error saving recording:', err);
@@ -343,19 +280,6 @@ const AudioRecorder = ({
         </div>
       )}
 
-      {/* Browser Compatibility Warning */}
-      {!browserSupported && (
-        <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mb-4 rounded">
-          <div className="flex items-center mb-2">
-            <AlertTriangle className="h-5 w-5 mr-2" />
-            <p className="font-bold">Browser Compatibility Issue</p>
-          </div>
-          <p>
-            Your browser doesn't support all required features. Please use Chrome, Edge, or Opera for full functionality.
-          </p>
-        </div>
-      )}
-
       {/* Category Selection */}
       <div className="space-y-2">
         <label className="block text-sm font-medium">Select Category:</label>
@@ -372,37 +296,6 @@ const AudioRecorder = ({
             <option key={category} value={category}>{category}</option>
           ))}
         </select>
-      </div>
-
-      {/* Directory Selection */}
-      <div className="space-y-2">
-        <div className="flex items-center justify-between">
-          <div>
-            <label className="block text-sm font-medium">Save Location:</label>
-            <p className="text-sm text-gray-500">
-              {directoryName ? `Selected: ${directoryName}` : 'No directory selected'}
-            </p>
-          </div>
-          <button
-            onClick={selectDirectory}
-            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 flex items-center"
-          >
-            <Folder className="h-4 w-4 mr-2" />
-            Select Folder
-          </button>
-        </div>
-      </div>
-
-      {/* User ID Input */}
-      <div className="space-y-2">
-        <label className="block text-sm font-medium">User ID:</label>
-        <input
-          type="text"
-          value={userId}
-          onChange={handleUserIdChange}
-          className="w-full p-2 border rounded"
-          placeholder="Enter user ID"
-        />
       </div>
 
       {/* Sentence Display */}
