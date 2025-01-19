@@ -42,17 +42,3 @@ const loadProgress = async (directoryHandle, userId) => {
     return null;
   }
 };
-
-
-
-// Update progress after successful recording
-const saveRecording = async (blob) => {
-  // ... existing code ...
-
-
-
-} catch (err) {
-  console.error('Error saving recording or progress:', err);
-  throw err;
-}
-};
