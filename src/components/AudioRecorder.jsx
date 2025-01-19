@@ -54,6 +54,23 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
     setUserId(e.target.value);
   };
 
+  // save progress file in directory
+  const initializeProgress = async () => {
+    if (initialDirectoryHandle && initialUserId) {
+      const savedProgress = await loadProgress(initialDirectoryHandle, initialUserId);
+      if (savedProgress) {
+        setRecordedSentences(savedProgress.recordedSentences);
+        setSelectedCategory(savedProgress.selectedCategory);
+        setCurrentSentence(savedProgress.currentSentence);
+      }
+    }
+  };
+
+  // Call initializeProgress in useEffect
+  useEffect(() => {
+    initializeProgress();
+  }, [initialDirectoryHandle, initialUserId]);
+
   // Start recording function
   const startRecording = async () => {
     try {
@@ -201,6 +218,19 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
       await writableStream.write(wavBlob);
       await writableStream.close();
       console.log(`Recording saved as ${fileName}`);
+
+
+      // Save the progress
+      console.log(`Saving progress`);
+      const updatedRecordedSentences = new Set([...recordedSentences, currentSentenceData.id]);
+      setRecordedSentences(updatedRecordedSentences);
+
+      // Save progress
+      await saveProgress(directoryHandleRef.current, userId, {
+        recordedSentences: updatedRecordedSentences,
+        selectedCategory,
+        currentSentence
+      });
 
     } catch (err) {
       console.error('Error saving recording:', err);
