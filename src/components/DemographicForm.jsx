@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { AlertTriangle, Folder } from 'lucide-react';
 
 const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }) => {
   const directoryHandleRef = useRef(initialDirectoryHandle);
+  const [showFullForm, setShowFullForm] = useState(false);
   const [browserSupported, setBrowserSupported] = useState(true);
   const [directoryName, setDirectoryName] = useState(initialDirectoryHandle?.name || '');
   const [userId, setUserId] = useState('');
+  const [error, setError] = useState(null);
 
   const currentYear = new Date().getFullYear();
   const [formData, setFormData] = useState({
@@ -20,7 +22,6 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     dbs: '',
     speechTherapy: ''
   });
-  const [error, setError] = useState(null);
 
   // Check browser compatibility on mount
   useEffect(() => {
@@ -28,9 +29,35 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     setBrowserSupported(isFileSystemSupported);
   }, []);
 
-  const handleUserIdChange = (e) => {
-    const newUserId = e.target.value;
-    setUserId(newUserId);
+  const checkExistingDemographics = async () => {
+    try {
+      const fileName = `${userId}_demographics.csv`;
+      await directoryHandleRef.current.getFileHandle(fileName);
+      // If we get here, the file exists
+      onComplete(userId, directoryHandleRef.current);
+      return true;
+    } catch (err) {
+      // File doesn't exist, show the full form
+      setShowFullForm(true);
+      return false;
+    }
+  };
+
+  const handleInitialSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+
+    if (!userId.trim()) {
+      setError('Please enter a user ID');
+      return;
+    }
+
+    if (!directoryHandleRef.current) {
+      setError('Please select a directory');
+      return;
+    }
+
+    await checkExistingDemographics();
   };
 
   // Select directory for saving recordings
@@ -115,7 +142,67 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     { value: 'more than 5 years ago', label: 'More than 5 years ago' }
   ];
 
-  // Rest of your component remains the same...
+
+  if (!showFullForm) {
+    return (
+      <div className="max-w-2xl mx-auto p-6 space-y-6">
+        <h1 className="text-2xl font-bold mb-6">Speaker Information</h1>
+
+        {error && (
+          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4 rounded">
+            <div className="flex items-center mb-2">
+              <AlertTriangle className="h-5 w-5 mr-2" />
+              <p className="font-bold">Error</p>
+            </div>
+            <p>{error}</p>
+          </div>
+        )}
+
+        <form onSubmit={handleInitialSubmit} className="space-y-6">
+          {/* User ID Input */}
+          <div className="space-y-2">
+            <label className="block text-sm font-medium">User ID:</label>
+            <input
+              type="text"
+              value={userId}
+              onChange={(e) => setUserId(e.target.value)}
+              className="w-full p-2 border rounded"
+              placeholder="Enter user ID"
+            />
+          </div>
+
+          {/* Directory Selection */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <div>
+                <label className="block text-sm font-medium">Save Location:</label>
+                <p className="text-sm text-gray-500">
+                  {directoryName ? `Selected: ${directoryName}` : 'No directory selected'}
+                </p>
+              </div>
+              <button
+                onClick={selectDirectory}
+                type="button"
+                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 flex items-center"
+              >
+                <Folder className="h-4 w-4 mr-2" />
+                Select Folder
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Continue
+          </button>
+        </form>
+      </div>
+    );
+  }
+
+
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6">
       <h1 className="text-2xl font-bold mb-6">Speaker Information</h1>

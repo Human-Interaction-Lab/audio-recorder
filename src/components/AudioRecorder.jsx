@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Mic, Square, Play, AlertTriangle, Folder, Check } from 'lucide-react';
 import { sentences } from './sentences';
+import { saveProgress, loadProgress } from './progressUtils';
 
 const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
   // State for sentence category selection
@@ -57,19 +58,34 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
   // save progress file in directory
   const initializeProgress = async () => {
     if (initialDirectoryHandle && initialUserId) {
-      const savedProgress = await loadProgress(initialDirectoryHandle, initialUserId);
-      if (savedProgress) {
-        setRecordedSentences(savedProgress.recordedSentences);
-        setSelectedCategory(savedProgress.selectedCategory);
-        setCurrentSentence(savedProgress.currentSentence);
+      try {
+        const savedProgress = await loadProgress(initialDirectoryHandle, initialUserId);
+        if (savedProgress) {
+          setRecordedSentences(savedProgress.recordedSentences);
+          setSelectedCategory(savedProgress.selectedCategory);
+          setCurrentSentence(savedProgress.currentSentence);
+        }
+      } catch (err) {
+        console.error('Error loading progress:', err);
+        setError('Failed to load previous progress');
       }
     }
   };
 
-  // Call initializeProgress in useEffect
-  useEffect(() => {
-    initializeProgress();
-  }, [initialDirectoryHandle, initialUserId]);
+  // update progress when changing categories
+  const updateProgress = async () => {
+    if (directoryHandleRef.current && userId) {
+      try {
+        await saveProgress(directoryHandleRef.current, userId, {
+          recordedSentences,
+          selectedCategory,
+          currentSentence
+        });
+      } catch (err) {
+        console.error('Error updating progress:', err);
+      }
+    }
+  };
 
   // Start recording function
   const startRecording = async () => {
@@ -220,17 +236,20 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
       console.log(`Recording saved as ${fileName}`);
 
 
-      // Save the progress
-      console.log(`Saving progress`);
-      const updatedRecordedSentences = new Set([...recordedSentences, currentSentenceData.id]);
-      setRecordedSentences(updatedRecordedSentences);
+      try {
+        // Save the progress
+        console.log(`Saving progress`);
+        const updatedRecordedSentences = new Set([...recordedSentences, currentSentenceData.id]);
+        setRecordedSentences(updatedRecordedSentences);
 
-      // Save progress
-      await saveProgress(directoryHandleRef.current, userId, {
-        recordedSentences: updatedRecordedSentences,
-        selectedCategory,
-        currentSentence
-      });
+        await saveProgress(directoryHandleRef.current, userId, {
+          recordedSentences: updatedRecordedSentences,
+          selectedCategory,
+          currentSentence
+        });
+      } catch (progressError) {
+        console.error('Error saving progress:', progressError);
+      }
 
     } catch (err) {
       console.error('Error saving recording:', err);
@@ -238,12 +257,18 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
     }
   };
 
+  // Call initializeProgress in useEffect
+  useEffect(() => {
+    initializeProgress();
+  }, [initialDirectoryHandle, initialUserId]);
+
   // Navigation functions
   const handleNavigation = (direction) => {
     if (recording) {
       stopRecording();
     }
     setAudioBlob(null);
+    updateProgress();
 
     setCurrentSentence(curr => {
       if (direction === 'next' && curr < currentCategorySentences.length - 1) {
@@ -318,6 +343,7 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
           onChange={(e) => {
             setSelectedCategory(e.target.value);
             setCurrentSentence(0);
+            updateProgress();
             // setRecordedSentences(new Set());
           }}
           className="w-full p-2 border rounded"
