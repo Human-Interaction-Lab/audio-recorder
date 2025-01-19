@@ -158,6 +158,18 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
           </div>
         )}
 
+        {!browserSupported && (
+          <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mb-4 rounded">
+            <div className="flex items-center mb-2">
+              <AlertTriangle className="h-5 w-5 mr-2" />
+              <p className="font-bold">Browser Compatibility Issue</p>
+            </div>
+            <p>
+              Your browser doesn't support all required features. Please use Chrome, Edge, or Opera for full functionality.
+            </p>
+          </div>
+        )}
+
         <form onSubmit={handleInitialSubmit} className="space-y-6">
           {/* User ID Input */}
           <div className="space-y-2">
