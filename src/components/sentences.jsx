@@ -223,18 +223,6 @@ export const sentences = {
             sentence: "Snowball purred contentedly, resting her head on Megan's arm."
         },
         {
-            id: "Trn_07_01",
-            sentence: "On a bright Saturday afternoon,"
-        },
-        {
-            id: "Trn_07_02",
-            sentence: "Lucas went to the park with his family."
-        },
-        {
-            id: "Trn_07_03",
-            sentence: "As he walked through the grass,"
-        },
-        {
             id: "Trn_04_01",
             sentence: "Every summer, Jake and his friends"
         },
@@ -325,6 +313,18 @@ export const sentences = {
         {
             id: "Trn_04_23",
             sentence: "excited to fish again tomorrow."
+        },
+        {
+            id: "Trn_07_01",
+            sentence: "On a bright Saturday afternoon,"
+        },
+        {
+            id: "Trn_07_02",
+            sentence: "Lucas went to the park with his family."
+        },
+        {
+            id: "Trn_07_03",
+            sentence: "As he walked through the grass,"
         },
         {
             id: "Trn_07_04",
