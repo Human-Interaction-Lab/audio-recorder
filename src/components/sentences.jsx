@@ -1,4 +1,10 @@
 export const sentences = {
+    Practice: [
+        {
+            id: "Practice",
+            sentence: "The supermarket chain shut down"
+        }
+    ],
     Training: [
         {
             id: "Trn_01_01",

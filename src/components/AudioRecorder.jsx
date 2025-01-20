@@ -5,7 +5,7 @@ import { saveProgress, loadProgress } from './progressUtils';
 
 const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
   // State for sentence category selection
-  const [selectedCategory, setSelectedCategory] = useState('Training');
+  const [selectedCategory, setSelectedCategory] = useState('Practice');
   const [currentSentenceData, setCurrentSentenceData] = useState(null);
 
   // State management
@@ -15,7 +15,7 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
   const [recording, setRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const [currentSentence, setCurrentSentence] = useState(0);
-  const [browserSupported, setBrowserSupported] = useState(true);
+  // const [browserSupported, setBrowserSupported] = useState(true);
   const [status, setStatus] = useState('idle'); // idle, recording, processing, error
   const [error, setError] = useState(null);
 
@@ -37,23 +37,6 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
       setCurrentSentenceData(currentCategorySentences[currentSentence]);
     }
   }, [selectedCategory, currentSentence]);
-
-  // Select directory for saving recordings
-  const selectDirectory = async () => {
-    try {
-      const dirHandle = await window.showDirectoryPicker();
-      directoryHandleRef.current = dirHandle;
-      setDirectoryName(dirHandle.name);
-      console.log('Selected directory:', dirHandle.name);
-    } catch (err) {
-      console.error('Error selecting directory:', err);
-      setError('Failed to select directory');
-    }
-  };
-
-  const handleUserIdChange = (e) => {
-    setUserId(e.target.value);
-  };
 
   // save progress file in directory
   const initializeProgress = async () => {
