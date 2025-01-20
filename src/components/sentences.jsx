@@ -2,7 +2,7 @@ export const sentences = {
     Practice: [
         {
             id: "Practice",
-            sentence: "The supermarket chain shut down"
+            sentence: "The supermarket chain shut down due to poor management"
         }
     ],
     Training: [

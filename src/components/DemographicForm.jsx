@@ -19,6 +19,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     parkinsonsDisease: '',
     diagnosisYear: '',
     medication: '',
+    medicationToday: '',
     dbs: '',
     speechTherapy: ''
   });
@@ -109,10 +110,11 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
       // Create CSV content
       const csvContent = [
         'User ID,Date of Birth,Ethnicity,Race,Race Other,Sex at Birth,Parkinsons Disease,' +
-        'Diagnosis Year,Medication,Deep Brain Stimulation,Speech Therapy',
+        'Diagnosis Year,Medication,Medication Today,Deep Brain Stimulation,Speech Therapy',
         `${userId},${formData.dateOfBirth},${formData.ethnicity},${formData.race},` +
         `${formData.raceOther},${formData.sexAtBirth},${formData.parkinsonsDisease},` +
-        `${formData.diagnosisYear},${formData.medication},${formData.dbs},${formData.speechTherapy}`
+        `${formData.diagnosisYear},${formData.medication},${formData.medicaitonToday},` +
+        `${formData.dbs},${formData.speechTherapy}`
       ].join('\n');
 
       const fileName = `${userId}_demographics.csv`;
@@ -144,7 +146,27 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     { value: currentYear - 3, label: currentYear - 3 },
     { value: currentYear - 4, label: currentYear - 4 },
     { value: currentYear - 5, label: currentYear - 5 },
-    { value: 'more than 5 years ago', label: 'More than 5 years ago' }
+    { value: currentYear - 6, label: currentYear - 6 },
+    { value: currentYear - 7, label: currentYear - 7 },
+    { value: currentYear - 8, label: currentYear - 8 },
+    { value: currentYear - 9, label: currentYear - 9 },
+    { value: currentYear - 10, label: currentYear - 10 },
+    { value: currentYear - 11, label: currentYear - 11 },
+    { value: currentYear - 12, label: currentYear - 12 },
+    { value: currentYear - 13, label: currentYear - 13 },
+    { value: currentYear - 14, label: currentYear - 14 },
+    { value: currentYear - 15, label: currentYear - 15 },
+    { value: currentYear - 16, label: currentYear - 16 },
+    { value: currentYear - 17, label: currentYear - 17 },
+    { value: currentYear - 18, label: currentYear - 18 },
+    { value: currentYear - 19, label: currentYear - 19 },
+    { value: currentYear - 20, label: currentYear - 20 },
+    { value: currentYear - 21, label: currentYear - 21 },
+    { value: currentYear - 22, label: currentYear - 22 },
+    { value: currentYear - 23, label: currentYear - 23 },
+    { value: currentYear - 24, label: currentYear - 24 },
+    { value: currentYear - 25, label: currentYear - 25 },
+    { value: 'Before 2000', label: 'Before 2000' }
   ];
 
 
@@ -391,10 +413,9 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
               name="diagnosisYear"
               value={formData.diagnosisYear}
               onChange={handleInputChange}
-              required
               className="w-full p-2 border rounded"
             >
-              <option value="">Select year</option>
+              <option value="">Select year (if unsure, give an estimate)</option>
               {diagnosisYearOptions.map(option => (
                 <option key={option.value} value={option.value}>
                   {option.label}
@@ -407,7 +428,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
         {/* Medication */}
         <div className="space-y-2">
           <label className="block text-sm font-medium">
-            Are you currently taking medication for Parkinson's Disease?
+            Are you on medication for Parkinson's Disease?
           </label>
           <select
             name="medication"
@@ -421,6 +442,26 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
             <option value="No">No</option>
           </select>
         </div>
+
+        {/* Medication(conditional) */}
+        {formData.medication === 'Yes' && (
+          <div className="space-y-2">
+            <label className="block text-sm font-medium">Have you taken the medication today?</label>
+            <select
+              name="diagnosisYear"
+              value={formData.medicationToday}
+              onChange={handleInputChange}
+              className="w-full p-2 border rounded"
+            >
+              <option value="">Select year</option>
+              {diagnosisYearOptions.map(option => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
 
         {/* Deep Brain Stimulation */}
         <div className="space-y-2">
