@@ -29,10 +29,15 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     setBrowserSupported(isFileSystemSupported);
   }, []);
 
+  const handleUserIdChange = (e) => {
+    setUserId(e.target.value);
+  };
+
+
   const checkExistingDemographics = async () => {
     try {
       const fileName = `${userId}_demographics.csv`;
-      await directoryHandleRef.current.getFileHandle(fileName);
+      const fileHandle = await directoryHandleRef.current.getFileHandle(fileName);
       // If we get here, the file exists
       onComplete(userId, directoryHandleRef.current);
       return true;
@@ -177,7 +182,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
             <input
               type="text"
               value={userId}
-              onChange={(e) => setUserId(e.target.value)}
+              onChange={handleUserIdChange}
               className="w-full p-2 border rounded"
               placeholder="Enter user ID"
             />
