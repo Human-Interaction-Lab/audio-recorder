@@ -7,146 +7,6 @@ export const sentences = {
     ],
     Training: [
         {
-            id: "Trn_01_01",
-            sentence: "You wish to know more about my grandpa?"
-        },
-        {
-            id: "Trn_01_02",
-            sentence: "Though he is very small and short,"
-        },
-        {
-            id: "Trn_01_03",
-            sentence: "his soul has the power of a man half his age."
-        },
-        {
-            id: "Trn_01_04",
-            sentence: "The way he speaks of my grandma,"
-        },
-        {
-            id: "Trn_01_05",
-            sentence: "with his eyes and face lit up,"
-        },
-        {
-            id: "Trn_01_06",
-            sentence: "will touch the most calloused goat in the right place."
-        },
-        {
-            id: "Trn_01_07",
-            sentence: "Those who witness him speak"
-        },
-        {
-            id: "Trn_01_08",
-            sentence: "will learn she is a ray of light"
-        },
-        {
-            id: "Trn_01_09",
-            sentence: "which warms each day."
-        },
-        {
-            id: "Trn_01_10",
-            sentence: "I hate to imagine the void"
-        },
-        {
-            id: "Trn_01_11",
-            sentence: "her absence would leave,"
-        },
-        {
-            id: "Trn_01_12",
-            sentence: "but grandma shouts, “Bereave me?"
-        },
-        {
-            id: "Trn_01_13",
-            sentence: "it's my berry-peach tea cakes"
-        },
-        {
-            id: "Trn_01_14",
-            sentence: "he'd miss most!”"
-        },
-        {
-            id: "Trn_01_15",
-            sentence: "Grandpa would often tease he'd tuck six cakes"
-        },
-        {
-            id: "Trn_01_16",
-            sentence: "in the pocket of his white coat,"
-        },
-        {
-            id: "Trn_01_17",
-            sentence: "or inside grandma's vase,"
-        },
-        {
-            id: "Trn_01_18",
-            sentence: "to enjoy later with cheese or sherry."
-        },
-        {
-            id: "Trn_01_19",
-            sentence: "It's rare that he misses a date with his pal Jerry"
-        },
-        {
-            id: "Trn_01_20",
-            sentence: "to wear his Dutch war uniform"
-        },
-        {
-            id: "Trn_01_21",
-            sentence: "and give a wailing speech to the kids down by the mall."
-        },
-        {
-            id: "Trn_01_22",
-            sentence: "It's quite a sight to behold-"
-        },
-        {
-            id: "Trn_01_23",
-            sentence: "grandpa will trudge miles through the snow, ice, or hail,"
-        },
-        {
-            id: "Trn_01_24",
-            sentence: "even when he's sick, mad or sore -"
-        },
-        {
-            id: "Trn_01_25",
-            sentence: "one hand lay on the lid of his mug,"
-        },
-        {
-            id: "Trn_01_26",
-            sentence: "one in the air"
-        },
-        {
-            id: "Trn_01_27",
-            sentence: "not a speck out of place"
-        },
-        {
-            id: "Trn_01_28",
-            sentence: "on his suit or in his hair!"
-        },
-        {
-            id: "Trn_01_29",
-            sentence: "When he sees his friend, Jerry"
-        },
-        {
-            id: "Trn_01_30",
-            sentence: "he'll yell by the railing"
-        },
-        {
-            id: "Trn_01_31",
-            sentence: "“Hey, who let this bore out of the jail tower?”"
-        },
-        {
-            id: "Trn_01_32",
-            sentence: "Jerry's gal emerges in her gown and says,"
-        },
-        {
-            id: "Trn_01_33",
-            sentence: "“I trust you'll be back late tonight?”"
-        },
-        {
-            id: "Trn_01_34",
-            sentence: "Grandpa comes to his aid and says"
-        },
-        {
-            id: "Trn_01_35",
-            sentence: "“Jeez, sis, don't get irate, I'll have him home by 8”."
-        },
-        {
             id: "Trn_02_01",
             sentence: "Do you like amusement parks?"
         },
@@ -373,6 +233,98 @@ export const sentences = {
         {
             id: "Trn_07_03",
             sentence: "As he walked through the grass,"
+        },
+        {
+            id: "Trn_04_01",
+            sentence: "Every summer, Jake and his friends"
+        },
+        {
+            id: "Trn_04_02",
+            sentence: "visited the lake near his grandfather's cabin."
+        },
+        {
+            id: "Trn_04_03",
+            sentence: "The water sparkled under the bright sun,"
+        },
+        {
+            id: "Trn_04_04",
+            sentence: "and the tall trees swayed gently in the breeze."
+        },
+        {
+            id: "Trn_04_05",
+            sentence: "One afternoon, Jake decided to go fishing."
+        },
+        {
+            id: "Trn_04_06",
+            sentence: "He grabbed a rod, bait, and bucket,"
+        },
+        {
+            id: "Trn_04_07",
+            sentence: "then walked to the dock."
+        },
+        {
+            id: "Trn_04_08",
+            sentence: "Sitting quietly, he cast his line into the water"
+        },
+        {
+            id: "Trn_04_09",
+            sentence: "and waited and waited and waited."
+        },
+        {
+            id: "Trn_04_10",
+            sentence: "Suddenly, the rod jerked."
+        },
+        {
+            id: "Trn_04_11",
+            sentence: "Jake pulled hard,"
+        },
+        {
+            id: "Trn_04_12",
+            sentence: "and a shiny fish wriggled at the end of the line."
+        },
+        {
+            id: "Trn_04_13",
+            sentence: "He shouted, “I caught one!”"
+        },
+        {
+            id: "Trn_04_14",
+            sentence: "His friends ran over to see, cheering loudly."
+        },
+        {
+            id: "Trn_04_15",
+            sentence: "Jake carefully placed the fish in the bucket."
+        },
+        {
+            id: "Trn_04_16",
+            sentence: "“Maybe next time, I'll catch a bigger one,”"
+        },
+        {
+            id: "Trn_04_17",
+            sentence: "he said with a grin."
+        },
+        {
+            id: "Trn_04_18",
+            sentence: "Later that day, Jake returned to the cabin"
+        },
+        {
+            id: "Trn_04_19",
+            sentence: "and told his grandfather about the fish."
+        },
+        {
+            id: "Trn_04_20",
+            sentence: "His grandfather smiled and said,"
+        },
+        {
+            id: "Trn_04_21",
+            sentence: "“You've got the makings of a great fisherman!”"
+        },
+        {
+            id: "Trn_04_22",
+            sentence: "Jake beamed proudly,"
+        },
+        {
+            id: "Trn_04_23",
+            sentence: "excited to fish again tomorrow."
         },
         {
             id: "Trn_07_04",
