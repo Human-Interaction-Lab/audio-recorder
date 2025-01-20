@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Mic, Square, Play, AlertTriangle, Folder, Check } from 'lucide-react';
+import { Mic, Square, Play, AlertTriangle, Folder, Check, ChevronUp, ChevronDown } from 'lucide-react';
 import { sentences } from './sentences';
 import { saveProgress, loadProgress } from './progressUtils';
 
@@ -18,6 +18,7 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
   // const [browserSupported, setBrowserSupported] = useState(true);
   const [status, setStatus] = useState('idle'); // idle, recording, processing, error
   const [error, setError] = useState(null);
+  const [showCompletedDropdown, setShowCompletedDropdown] = useState(false);
 
   // References
   const mediaRecorderRef = useRef(null);
@@ -37,6 +38,82 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
       setCurrentSentenceData(currentCategorySentences[currentSentence]);
     }
   }, [selectedCategory, currentSentence]);
+
+  // Get completed sentences for the current category
+  const getCompletedSentences = () => {
+    return currentCategorySentences.filter(sentence =>
+      recordedSentences.has(sentence.id)
+    );
+  };
+
+  // Navigation functions
+  const handleNavigation = (direction) => {
+    if (recording) {
+      stopRecording();
+    }
+    setAudioBlob(null);
+    updateProgress();
+
+    setCurrentSentence(curr => {
+      if (direction === 'next' && curr < currentCategorySentences.length - 1) {
+        return curr + 1;
+      } else if (direction === 'previous' && curr > 0) {
+        return curr - 1;
+      }
+      return curr;
+    });
+  };
+
+  const nextSentence = () => handleNavigation('next');
+  const previousSentence = () => handleNavigation('previous');
+
+  // Jump to a specific completed sentence
+  const jumpToSentence = (sentenceId) => {
+    const index = currentCategorySentences.findIndex(s => s.id === sentenceId);
+    if (index !== -1) {
+      if (recording) {
+        stopRecording();
+      }
+      setAudioBlob(null);
+      setCurrentSentence(index);
+      setShowCompletedDropdown(false);
+    }
+  };
+
+  // Completed Sentences Dropdown
+  const CompletedSentencesDropdown = () => {
+    const completedSentences = getCompletedSentences();
+
+    if (completedSentences.length === 0) {
+      return null;
+    }
+
+    return (
+      <div className="relative">
+        <button
+          onClick={() => setShowCompletedDropdown(!showCompletedDropdown)}
+          className="w-full px-4 py-2 bg-gray-100 rounded flex items-center justify-between hover:bg-gray-200"
+        >
+          <span>Jump to Completed Sentence</span>
+          {showCompletedDropdown ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+        </button>
+
+        {showCompletedDropdown && (
+          <div className="absolute z-10 w-full mt-1 bg-white border rounded-md shadow-lg max-h-60 overflow-auto">
+            {completedSentences.map((sentence) => (
+              <button
+                key={sentence.id}
+                onClick={() => jumpToSentence(sentence.id)}
+                className="w-full px-4 py-2 text-left hover:bg-gray-100 text-sm"
+              >
+                {sentence.id}: {sentence.sentence.substring(0, 25)}...
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   // save progress file in directory
   const initializeProgress = async () => {
@@ -245,26 +322,6 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
     initializeProgress();
   }, [initialDirectoryHandle, initialUserId]);
 
-  // Navigation functions
-  const handleNavigation = (direction) => {
-    if (recording) {
-      stopRecording();
-    }
-    setAudioBlob(null);
-    updateProgress();
-
-    setCurrentSentence(curr => {
-      if (direction === 'next' && curr < currentCategorySentences.length - 1) {
-        return curr + 1;
-      } else if (direction === 'previous' && curr > 0) {
-        return curr - 1;
-      }
-      return curr;
-    });
-  };
-
-  const nextSentence = () => handleNavigation('next');
-  const previousSentence = () => handleNavigation('previous');
 
   // Clean up function
   useEffect(() => {
@@ -337,6 +394,9 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
         </select>
       </div>
 
+      {/* Completed Sentences Navigation */}
+      <CompletedSentencesDropdown />
+
       {/* Sentence Display */}
       <div className="p-4 bg-gray-50 rounded-lg">
         <div className="flex items-center justify-between">
@@ -375,17 +435,6 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
             <Play size={24} />
           </button>
         )}
-
-        {/* No longer need redo button}}
-        {audioBlob && recordedSentences.has(currentSentenceData?.id) && (
-          <button
-            onClick={() => setAudioBlob(null)}
-            className="p-4 rounded-full bg-gray-500 hover:bg-gray-600 text-white"
-          >
-            <RotateCcw size={24} />
-          </button>
-        )}
-          */}
       </div>
 
       {/* Navigation Controls */}
