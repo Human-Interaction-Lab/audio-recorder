@@ -113,7 +113,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
         'Diagnosis Year,Medication,Medication Today,Deep Brain Stimulation,Speech Therapy',
         `${userId},${formData.dateOfBirth},${formData.ethnicity},${formData.race},` +
         `${formData.raceOther},${formData.sexAtBirth},${formData.parkinsonsDisease},` +
-        `${formData.diagnosisYear},${formData.medication},${formData.medicaitonToday},` +
+        `${formData.diagnosisYear},${formData.medication},${formData.medicationToday},` +
         `${formData.dbs},${formData.speechTherapy}`
       ].join('\n');
 
