@@ -448,7 +448,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
           <div className="space-y-2">
             <label className="block text-sm font-medium">Have you taken the medication today?</label>
             <select
-              name="diagnosisYear"
+              name="medicationToday"
               value={formData.medicationToday}
               onChange={handleInputChange}
               className="w-full p-2 border rounded"
