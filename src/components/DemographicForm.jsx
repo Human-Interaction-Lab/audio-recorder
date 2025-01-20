@@ -453,12 +453,9 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
               onChange={handleInputChange}
               className="w-full p-2 border rounded"
             >
-              <option value="">Select year</option>
-              {diagnosisYearOptions.map(option => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
+              <option value="">Select answer</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </div>
         )}
