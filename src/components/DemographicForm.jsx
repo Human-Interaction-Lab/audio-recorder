@@ -716,7 +716,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
 
 
         {/* CPIB Section */}
-        <div className="mt-8 space-y-6">
+        <div className="mt-8 space-y-6 bg-gray-100 p-6 rounded-lg">
           <h2 className="text-xl font-bold">Communication Assessment</h2>
           <p className="text-sm text-gray-600">
             The following questions describe situations where you might need to speak to others.
