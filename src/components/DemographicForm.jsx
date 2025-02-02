@@ -21,7 +21,19 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     medication: '',
     medicationToday: '',
     dbs: '',
-    speechTherapy: ''
+    speechTherapy: '',
+    cpib: {
+      talkingKnownPeople: '',
+      communicatingQuickly: '',
+      talkingUnknownPeople: '',
+      communicatingCommunity: '',
+      askingQuestions: '',
+      communicatingSmallGroup: '',
+      longConversation: '',
+      detailedInformation: '',
+      fastMovingConversation: '',
+      persuadingOthers: ''
+    }
   });
 
   // Check browser compatibility on mount
@@ -81,17 +93,30 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
 
-    // Reset diagnosis year if Parkinson's answer changes to 'No'
-    if (name === 'parkinsonsDisease' && value === 'No') {
+    // Check if this is a CPIB field
+    if (name.startsWith('cpib.')) {
+      const cpibField = name.split('.')[1];
       setFormData(prev => ({
         ...prev,
-        diagnosisYear: ''
+        cpib: {
+          ...prev.cpib,
+          [cpibField]: value
+        }
       }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+
+      // Reset diagnosis year if Parkinson's answer changes to 'No'
+      if (name === 'parkinsonsDisease' && value === 'No') {
+        setFormData(prev => ({
+          ...prev,
+          diagnosisYear: ''
+        }));
+      }
     }
   };
 
@@ -110,11 +135,19 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
       // Create CSV content
       const csvContent = [
         'User ID,Date of Birth,Ethnicity,Race,Race Other,Sex at Birth,Parkinsons Disease,' +
-        'Diagnosis Year,Medication,Medication Today,Deep Brain Stimulation,Speech Therapy',
+        'Diagnosis Year,Medication,Medication Today,Deep Brain Stimulation,Speech Therapy,' +
+        'Talking with Known People,Communicating Quickly,Talking with Unknown People,' +
+        'Communicating in Community,Asking Questions,Communicating in Small Group,' +
+        'Long Conversation,Detailed Information,Fast Moving Conversation,Persuading Others',
         `${userId},${formData.dateOfBirth},${formData.ethnicity},${formData.race},` +
         `${formData.raceOther},${formData.sexAtBirth},${formData.parkinsonsDisease},` +
         `${formData.diagnosisYear},${formData.medication},${formData.medicationToday},` +
-        `${formData.dbs},${formData.speechTherapy}`
+        `${formData.dbs},${formData.speechTherapy},` +
+        `${formData.cpib.talkingKnownPeople},${formData.cpib.communicatingQuickly},` +
+        `${formData.cpib.talkingUnknownPeople},${formData.cpib.communicatingCommunity},` +
+        `${formData.cpib.askingQuestions},${formData.cpib.communicatingSmallGroup},` +
+        `${formData.cpib.longConversation},${formData.cpib.detailedInformation},` +
+        `${formData.cpib.fastMovingConversation},${formData.cpib.persuadingOthers}`
       ].join('\n');
 
       const fileName = `${userId}_demographics.csv`;
@@ -168,6 +201,33 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     { value: currentYear - 25, label: currentYear - 25 },
     { value: 'Before 2000', label: 'Before 2000' }
   ];
+
+  const renderCPIBQuestion = (field, question) => (
+    <div className="space-y-2">
+      <label className="block text-sm font-medium">{question}</label>
+      <div className="grid grid-cols-4 gap-4">
+        {[
+          { value: '3', label: 'Not at all' },
+          { value: '2', label: 'A little' },
+          { value: '1', label: 'Quite a bit' },
+          { value: '0', label: 'Very much' }
+        ].map(option => (
+          <label key={option.value} className="flex items-center space-x-2">
+            <input
+              type="radio"
+              name={`cpib.${field}`}
+              value={option.value}
+              checked={formData.cpib[field] === option.value}
+              onChange={handleInputChange}
+              required
+              className="form-radio"
+            />
+            <span className="text-sm">{option.label}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+  );
 
 
   if (!showFullForm) {
@@ -498,6 +558,52 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
             <option value="No">No</option>
           </select>
         </div>
+
+        {/* CPIB Section */}
+        <div className="mt-8 space-y-6">
+          <h2 className="text-xl font-bold">Communication Assessment</h2>
+          <p className="text-sm text-gray-600">
+            The following questions describe situations where you might need to speak to others.
+            For each question, please indicate how much your condition interferes with your
+            participation in that situation. By "condition" we mean ALL issues that may affect
+            how you communicate, including speech conditions, other health conditions, or
+            features of the environment. If your speech varies, think about an AVERAGE day
+            for your speech - not your best or worst days.
+          </p>
+
+          <div className="space-y-6">
+            {renderCPIBQuestion('talkingKnownPeople',
+              'Does your condition interfere with talking with people you know?')}
+
+            {renderCPIBQuestion('communicatingQuickly',
+              'Does your condition interfere with communicating when you need to say something quickly?')}
+
+            {renderCPIBQuestion('talkingUnknownPeople',
+              'Does your condition interfere with talking with people you do NOT know?')}
+
+            {renderCPIBQuestion('communicatingCommunity',
+              'Does your condition interfere with communicating when you are out in your community (e.g. errands; appointments)?')}
+
+            {renderCPIBQuestion('askingQuestions',
+              'Does your condition interfere with asking questions in a conversation?')}
+
+            {renderCPIBQuestion('communicatingSmallGroup',
+              'Does your condition interfere with communicating in a small group of people?')}
+
+            {renderCPIBQuestion('longConversation',
+              'Does your condition interfere with having a long conversation with someone you know about a book, movie, show or sports event?')}
+
+            {renderCPIBQuestion('detailedInformation',
+              'Does your condition interfere with giving someone DETAILED information?')}
+
+            {renderCPIBQuestion('fastMovingConversation',
+              'Does your condition interfere with getting your turn in a fast-moving conversation?')}
+
+            {renderCPIBQuestion('persuadingOthers',
+              'Does your condition interfere with trying to persuade a friend or family member to see a different point of view?')}
+          </div>
+        </div>
+
 
         <button
           type="submit"
