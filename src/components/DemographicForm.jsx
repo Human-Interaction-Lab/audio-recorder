@@ -175,6 +175,8 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
         'Talking with Known People,Communicating Quickly,Talking with Unknown People,' +
         'Communicating in Community,Asking Questions,Communicating in Small Group,' +
         'Long Conversation,Detailed Information,Fast Moving Conversation,Persuading Others',
+
+        // Data line with matching order
         `${userId},${formData.dateOfBirth},${formData.ethnicity},${formData.race},` +
         `${formData.raceOther},${formData.sexAtBirth},${formData.parkinsonsDisease},` +
         `${formData.diagnosisYear},${formData.medication},${formData.medicationToday},` +
@@ -594,8 +596,8 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
             className="w-full p-2 border rounded"
           >
             <option value="">Select answer</option>
-            <option value="Yes, currently">Yes, currently</option>
-            <option value="Yes, previously but no longer attend">
+            <option value="Yes currently">Yes, currently</option>
+            <option value="Yes previously but no longer attend">
               Yes, previously but no longer attend
             </option>
             <option value="No">No</option>
