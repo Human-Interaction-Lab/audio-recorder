@@ -1614,363 +1614,363 @@ export const sentences = {
     ListeningEffort: [
         {
             id: "EFF01",
-            sentence: "The old man discussed the dive."
+            sentence: "The watchdog gave a warning growl."
         },
         {
             id: "EFF02",
-            sentence: "Bob heard Paul called about the stripe."
+            sentence: "She made the bed with clean sheets."
         },
         {
             id: "EFF03",
-            sentence: "I should have considered the map."
+            sentence: "The old train was powered by steam."
         },
         {
             id: "EFF04",
-            sentence: "Miss Brown shouldn't discuss the sand."
+            sentence: "He caught the fish in his net."
         },
         {
             id: "EFF05",
-            sentence: "They might have considered the hive."
+            sentence: "Close the window to stop the draft."
         },
         {
             id: "EFF06",
-            sentence: "David has discussed the dent."
+            sentence: "My T.V. has a twelve-inch screen."
         },
         {
             id: "EFF07",
-            sentence: "He can't consider the crib."
+            sentence: "The sandal has a broken strap."
         },
         {
             id: "EFF08",
-            sentence: "I am thinking about the knife."
+            sentence: "The boat sailed along the coast."
         },
         {
             id: "EFF09",
-            sentence: "David does not discuss the hug."
+            sentence: "Crocodiles live in muddy swamps."
         },
         {
             id: "EFF10",
-            sentence: "We've been discussing the crates."
+            sentence: "The farmer harvested his crop."
         },
         {
             id: "EFF11",
-            sentence: "Miss Black knew about the doll."
+            sentence: "All the flowers were in bloom."
         },
         {
             id: "EFF12",
-            sentence: "She couldn't discuss the plate."
+            sentence: "She wore a feather in her cap."
         },
         {
             id: "EFF13",
-            sentence: "Miss Black thought about the lap."
+            sentence: "The beer drinkers raised their mugs."
         },
         {
             id: "EFF14",
-            sentence: "Mr. Black knew about the pad."
+            sentence: "He was hit by a poisoned dart."
         },
         {
             id: "EFF15",
-            sentence: "You heard Jane called about the van."
+            sentence: "The bread was made from whole wheat."
         },
         {
             id: "EFF16",
-            sentence: "She's spoken about the bomb."
+            sentence: "The old man discussed the dive."
         },
         {
             id: "EFF17",
-            sentence: "We hear you called about the lock."
+            sentence: "Bob heard Paul called about the strips."
         },
         {
             id: "EFF18",
-            sentence: "The old man discussed the yell."
+            sentence: "I should have considered the map."
         },
         {
             id: "EFF19",
-            sentence: "They're glad we heard about the track."
+            sentence: "Miss Brown shouldn't discuss the sand."
         },
         {
             id: "EFF20",
-            sentence: "Sue was interested in the bruise."
+            sentence: "They might have considered the hive."
         },
         {
             id: "EFF21",
-            sentence: "Ruth will consider the heard."
+            sentence: "David has discussed the dent."
         },
         {
             id: "EFF22",
-            sentence: "The girl talked about the gin."
+            sentence: "He can't consider the crib."
         },
         {
             id: "EFF23",
-            sentence: "Paul can't discuss the wax."
+            sentence: "I am thinking about the knife."
         },
         {
             id: "EFF24",
-            sentence: "I hope Paul asked about the mate."
+            sentence: "David does not discuss the hug"
         },
         {
             id: "EFF25",
-            sentence: "You're glad they heard about the slave."
+            sentence: "We've been discussing the crates."
         },
         {
             id: "EFF26",
-            sentence: "The girl knows about the swamps."
+            sentence: "Miss Black knew about the doll."
         },
         {
             id: "EFF27",
-            sentence: "They did not discuss the screen."
+            sentence: "She couldn't discuss the pine."
         },
         {
             id: "EFF28",
-            sentence: "They were interested in the strap."
+            sentence: "Miss Black thought about the lap."
         },
         {
             id: "EFF29",
-            sentence: "I had a problem with the bloom."
+            sentence: "Mr. Black knew about the pad"
         },
         {
             id: "EFF30",
-            sentence: "Peter should speak about the mugs."
+            sentence: "You heard Jane called about the van."
         },
         {
             id: "EFF31",
-            sentence: "She wants to speak about the ant."
+            sentence: "I made the phone call from a booth."
         },
         {
             id: "EFF32",
-            sentence: "The boy would discuss the scab."
+            sentence: "he cut on his knee formed a scab."
         },
         {
             id: "EFF33",
-            sentence: "Tom could have thought about the sport."
+            sentence: "His boss made him work like a slave."
         },
         {
             id: "EFF34",
-            sentence: "You'd been considering the geese."
+            sentence: "The farmer baled the hay."
         },
         {
             id: "EFF35",
-            sentence: "Mr. Black considered the fleet."
+            sentence: "A termite looks like an ant."
         },
         {
             id: "EFF36",
-            sentence: "I want to know about the crop."
+            sentence: "Air mail requires a special stamp."
         },
         {
             id: "EFF37",
-            sentence: "Betty has talked about the draft."
+            sentence: "Football is a dangerous sport."
         },
         {
             id: "EFF38",
-            sentence: "Jane was interested in the stamp."
+            sentence: "We saw a flock of wild geese"
         },
         {
             id: "EFF39",
-            sentence: "I had not thought about the growl."
+            sentence: "Drop the coin through the slot."
         },
         {
             id: "EFF40",
-            sentence: "Paul should know about the net."
+            sentence: "Throw out all this useless junk."
         },
         {
             id: "EFF41",
-            sentence: "Tom heard Jane called about the booth."
+            sentence: "She cooked him a hardy meal."
         },
         {
             id: "EFF42",
-            sentence: "We can't consider the wheat."
+            sentence: "Her entry should win first prize."
         },
         {
             id: "EFF43",
-            sentence: "We have not discussed the steam."
+            sentence: "The stale bread was covered with mold."
         },
         {
             id: "EFF44",
-            sentence: "Miss Brown might consider the coast."
+            sentence: "The firemen heard her frightened scream."
         },
         {
             id: "EFF45",
-            sentence: "Mr. Brown can't discuss the slot."
+            sentence: "Your knees and your elbows are joints."
         },
         {
             id: "EFF46",
-            sentence: "He hasn't considered the dart."
+            sentence: "Tom wants to know about the cake."
         },
         {
             id: "EFF47",
-            sentence: "Mr. Smith thinks about the cap."
+            sentence: "She's spoken about the bomb."
         },
         {
             id: "EFF48",
-            sentence: "We should have considered the juice."
+            sentence: "We hear you called about the lock."
         },
         {
             id: "EFF49",
-            sentence: "Bob could have known about the spoon."
+            sentence: "The old man discussed the yell."
         },
         {
             id: "EFF50",
-            sentence: "Bill might discuss the foam."
+            sentence: "They're glad we heard about the track."
         },
         {
             id: "EFF51",
-            sentence: "Tom could not discuss the barn."
+            sentence: "Sue was interested in the bruise."
         },
         {
             id: "EFF52",
-            sentence: "You were considering the gang."
+            sentence: "Ruth will consider the herd."
         },
         {
             id: "EFF53",
-            sentence: "Nancy should consider the fist."
+            sentence: "The girl talked about the gin."
         },
         {
             id: "EFF54",
-            sentence: "I've spoken about the pile."
+            sentence: "Paul can't discuss the wax."
         },
         {
             id: "EFF55",
-            sentence: "Jane has a problem with the coin."
+            sentence: "Ruth could have discussed the wits."
         },
         {
             id: "EFF56",
-            sentence: "Mary could not discuss the tack."
+            sentence: "We could dicuss the dust."
         },
         {
             id: "EFF57",
-            sentence: "They have a problem with the limb."
+            sentence: "We spoke about the knob."
         },
         {
             id: "EFF58",
-            sentence: "Nancy had considered the sleeves."
+            sentence: "Paul hopes we heard about the loot."
         },
         {
             id: "EFF59",
-            sentence: "Bill heard Tom called about the coach."
+            sentence: "David might consider the fun."
         },
         {
             id: "EFF60",
-            sentence: "The old man thinks about the mast."
+            sentence: "Paul could not consider the rim."
         },
         {
             id: "EFF61",
-            sentence: "Tom will discuss the swan."
+            sentence: "I ate a piece of chocolate fudge."
         },
         {
             id: "EFF62",
-            sentence: "Ann was interested in the breath."
+            sentence: "Instead of a fence plant a hedge."
         },
         {
             id: "EFF63",
-            sentence: "Ruth hopes he heard about the hips."
+            sentence: "The story had a clever plot."
         },
         {
             id: "EFF64",
-            sentence: "Tom is talking about the fee."
+            sentence: "The landlord raised the rent."
         },
         {
             id: "EFF65",
-            sentence: "Miss Smith considered the scare."
+            sentence: "Her hair was tied with a blue bow. (as in 'no')"
         },
         {
             id: "EFF66",
-            sentence: "David should consider the blame."
+            sentence: "He's employed by a large firm."
         },
         {
             id: "EFF67",
-            sentence: "He's glad you called about the jar."
+            sentence: "The swimmer's leg got a bad cramp."
         },
         {
             id: "EFF68",
-            sentence: "Tom will discuss the cot."
+            sentence: "Our seats were in the second row. (as in 'no')"
         },
         {
             id: "EFF69",
-            sentence: "He hopes Tom asked about the bar."
+            sentence: "The thread was wound on a spool."
         },
         {
             id: "EFF70",
-            sentence: "Miss Black could have discussed the rope."
+            sentence: "They tracked the lion to his den."
         },
         {
             id: "EFF71",
-            sentence: "Ruth's grandmother discussed the broom."
+            sentence: "Spread some butter on your bread."
         },
         {
             id: "EFF72",
-            sentence: "I've been considering the crown."
+            sentence: "A spoiled child is a brat."
         },
         {
             id: "EFF73",
-            sentence: "She's glad Jane asked about the drain."
+            sentence: "Keep your broken arm in sling."
         },
         {
             id: "EFF74",
-            sentence: "He had considered the robe."
+            sentence: "The mouse was caught in the trap."
         },
         {
             id: "EFF75",
-            sentence: "I haven't discussed the sponge."
+            sentence: "I've got a cold and a sore throat."
         },
         {
             id: "EFF76",
-            sentence: "You cannot have discussed the grease."
+            sentence: "He heard they called about lanes."
         },
         {
             id: "EFF77",
-            sentence: "They knew about the fur."
+            sentence: "They had a problem with the cliff."
         },
         {
             id: "EFF78",
-            sentence: "We've spoken about the truck."
+            sentence: "Harry will consider the trail."
         },
         {
             id: "EFF79",
-            sentence: "She wants to talk about the crew."
+            sentence: "We are considering the cheers."
         },
         {
             id: "EFF80",
-            sentence: "You're glad she called about the bowl."
+            sentence: "She has known about the drug."
         },
         {
             id: "EFF81",
-            sentence: "The man could not discuss the mouse."
+            sentence: "Bill had a problem with the chat."
         },
         {
             id: "EFF82",
-            sentence: "You hope they asked about the vest."
+            sentence: "We hear they asked about the shed."
         },
         {
             id: "EFF83",
-            sentence: "You want to talk about the ditch."
+            sentence: "Jane had not considered the film."
         },
         {
             id: "EFF84",
-            sentence: "We hear she called about the drum."
+            sentence: "Jane did not speak about the slice."
         },
         {
             id: "EFF85",
-            sentence: "She might have discussed the ape."
+            sentence: "Paul was interested in the sap."
         },
         {
             id: "EFF86",
-            sentence: "Peter knows about the raft."
+            sentence: "I am discussing the task."
         },
         {
             id: "EFF87",
-            sentence: "The old man considered the kick."
+            sentence: "Ruth has discussed the peg."
         },
         {
             id: "EFF88",
-            sentence: "Bill hopes Paul heard about the mist."
+            sentence: "Tom is considering the clock."
         },
         {
             id: "EFF89",
-            sentence: "The boy can't talk about the thorns."
+            sentence: "He's thinking the roar."
         },
         {
             id: "EFF90",
-            sentence: "Miss Brown will speak about the grin."
+            sentence: "I should have known about the gum."
         },
         {
             id: "EFF91",
