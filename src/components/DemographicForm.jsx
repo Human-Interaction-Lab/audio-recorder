@@ -14,7 +14,6 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     dateOfBirth: '',
     ethnicity: '',
     race: '',
-    raceOther: '',
     sexAtBirth: '',
     parkinsonsDisease: '',
     diagnosisYear: '',
@@ -167,7 +166,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     try {
       // Create CSV content
       const csvContent = [
-        'User ID,Date of Birth,Ethnicity,Race,Race Other,Sex at Birth,Parkinsons Disease,' +
+        'User ID,Date of Birth,Ethnicity,Race,Sex at Birth,Parkinsons Disease,' +
         'Diagnosis Year,Medication,Medication Today,Deep Brain Stimulation,Speech Therapy,' +
         'Hearing Tested,Hearing Screen Result,' +
         'R250Hz,R500Hz,R1000Hz,R2000Hz,R4000Hz,R8000Hz,' +
@@ -178,7 +177,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
 
         // Data line with matching order
         `${userId},${formData.dateOfBirth},${formData.ethnicity},${formData.race},` +
-        `${formData.raceOther},${formData.sexAtBirth},${formData.parkinsonsDisease},` +
+        `${formData.sexAtBirth},${formData.parkinsonsDisease},` +
         `${formData.diagnosisYear},${formData.medication},${formData.medicationToday},` +
         `${formData.dbs},${formData.speechTherapy},` +
         `${formData.hearingTested},${formData.hearingScreenResult},` +
@@ -459,21 +458,6 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
             <option value="Other/prefer not to say">Other/prefer not to say</option>
           </select>
         </div>
-
-        {/* Race Other/Multiple (conditional) */}
-        {(formData.race === 'More than one race' || formData.race === 'Other/prefer not to say') && (
-          <div className="space-y-2">
-            <label className="block text-sm font-medium">Please specify:</label>
-            <input
-              type="text"
-              name="raceOther"
-              value={formData.raceOther}
-              onChange={handleInputChange}
-              className="w-full p-2 border rounded"
-              required
-            />
-          </div>
-        )}
 
         {/* Sex at Birth */}
         <div className="space-y-2">
