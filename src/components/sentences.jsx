@@ -1738,7 +1738,7 @@ export const sentences = {
         },
         {
             id: "EFF32",
-            sentence: "he cut on his knee formed a scab."
+            sentence: "The cut on his knee formed a scab."
         },
         {
             id: "EFF33",
@@ -1870,7 +1870,7 @@ export const sentences = {
         },
         {
             id: "EFF65",
-            sentence: "Her hair was tied with a blue bow. (as in 'no')"
+            sentence: "Her hair was tied with a blue bow."
         },
         {
             id: "EFF66",
@@ -1882,7 +1882,7 @@ export const sentences = {
         },
         {
             id: "EFF68",
-            sentence: "Our seats were in the second row. (as in 'no')"
+            sentence: "Our seats were in the second row."
         },
         {
             id: "EFF69",
