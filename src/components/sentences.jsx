@@ -1064,7 +1064,7 @@ export const sentences = {
         },
         {
             id: "Comp_02_02",
-            sentence: "Suddenly, he noticed that the needle of the gas gauge was resting on the red 'E'. Swearing to himself, he opened up the trunk and got out an empty gas can. Then he started walking to a gas station. After about a mile, he saw an old man standing beside the road. He stopped and asked the man how far it was to the nearest gas station. The man thought for about a minute. Finally, he said, 'Oh, I'd say a couple of miles as the crow flies.' The salesperson wiped his sweaty forward and asked, 'Well, how far is it if the crow is walking and carrying a gas can?'"
+            sentence: "Suddenly, he noticed that the needle of the gas gauge was resting on the red 'E'. Swearing to himself, he opened up the trunk and got out an empty gas can. Then he started walking to a gas station. After about a mile, he saw an old man standing beside the road. He stopped and asked the man how far it was to the nearest gas station. The man thought for about a minute. Finally, he said, 'Oh, I'd say a couple of miles as the crow flies.' The salesperson wiped his sweaty forehead and asked, 'Well, how far is it if the crow is walking and carrying a gas can?'"
         },
         {
             id: "Comp_03_01",
@@ -1088,7 +1088,7 @@ export const sentences = {
         },
         {
             id: "Comp_05_02",
-            sentence: "By three o'clock, they had finished the front of the house, and were painting the trim. Then a man walked around the corner of the house and asked them what they were doing there. 'Oh, you must be Mr.Foster,' Ben responded. 'I guess your wife forgot to tell you that she hired us to paint the house.' The man frowned and replied, 'My name is Nelson. The Fosters' live next door.'"
+            sentence: "Mrs. Foster was pleased with their offer and told them to start painting whenever they were ready. Early the next morning, the men arrived at the Foster's house and immediately went to work. By three o'clock, they had finished the front of the house, and were painting the trim. Then a man walked around the corner of the house and asked them what they were doing there. 'Oh, you must be Mr.Foster,' Ben responded. 'I guess your wife forgot to tell you that she hired us to paint the house.' The man frowned and replied, 'My name is Nelson. The Fosters' live next door.'"
         },
         {
             id: "Comp_06_01",
