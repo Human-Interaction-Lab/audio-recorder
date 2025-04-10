@@ -8,123 +8,67 @@ export const sentences = {
     Training: [
         {
             id: "Trn_02_01",
-            sentence: "Do you like amusement parks?"
+            sentence: "Do you like amusement parks? Well, I sure do."
         },
         {
             id: "Trn_02_02",
-            sentence: "Well, I sure do."
-        },
-        {
-            id: "Trn_02_03",
             sentence: "To amuse myself, I went twice last spring."
         },
         {
-            id: "Trn_02_04",
+            id: "Trn_02_03",
             sentence: "My most memorable moment was riding on the caterpillar."
         },
         {
-            id: "Trn_02_05",
+            id: "Trn_02_04",
             sentence: "Which is a gigantic rollercoaster high above the ground."
         },
         {
+            id: "Trn_02_05",
+            sentence: "When I saw how high the Caterpillar rose into the bright blue sky, I knew it was for me."
+        },
+        {
             id: "Trn_02_06",
-            sentence: "When I saw how high the Caterpillar rose"
+            sentence: "After waiting in line for thirty minutes, I made it to the front, where the man measured my height to see if I was tall enough."
         },
         {
             id: "Trn_02_07",
-            sentence: "Into the bright blue sky"
+            sentence: "I gave the man my coins, asked for change, and jumped on the cart."
         },
         {
             id: "Trn_02_08",
-            sentence: "I knew it was for me."
+            sentence: "Tick, tick, tick... The Caterpillar climbed slowly up the tracks."
         },
         {
             id: "Trn_02_09",
-            sentence: "After waiting in line for thirty minutes,"
+            sentence: "It went so high I could see the parking lot. Boy, I was scared."
         },
         {
             id: "Trn_02_10",
-            sentence: "I made it to the front,"
+            sentence: `I thought to myself, "There's no turning back now."`
         },
         {
             id: "Trn_02_11",
-            sentence: "Where the man measured my height"
-        },
-        {
-            id: "Trn_02_12",
-            sentence: "To see if I was tall enough."
-        },
-        {
-            id: "Trn_02_13",
-            sentence: "I gave the man my coins,"
-        },
-        {
-            id: "Trn_02_14",
-            sentence: "Asked for change,"
-        },
-        {
-            id: "Trn_02_15",
-            sentence: "And jumped on the cart."
-        },
-        {
-            id: "Trn_02_16",
-            sentence: "Tick, tick, tick..."
-        },
-        {
-            id: "Trn_02_17",
-            sentence: "The Caterpillar climbed slowly up the tracks."
-        },
-        {
-            id: "Trn_02_18",
-            sentence: "It went so high I could see the parking lot"
-        },
-        {
-            id: "Trn_02_19",
-            sentence: "Boy, I was scared."
-        },
-        {
-            id: "Trn_02_20",
-            sentence: "I thought to myself,"
-        },
-        {
-            id: "Trn_02_21",
-            sentence: "'There's no turning back now.'"
-        },
-        {
-            id: "Trn_02_22",
             sentence: "People were so scared."
         },
         {
-            id: "Trn_02_23",
-            sentence: "They screamed as we swiftly zoomed"
+            id: "Trn_02_12",
+            sentence: "They screamed as we swiftly zoomed, fast, fast, and faster along the tracks"
         },
         {
-            id: "Trn_02_24",
-            sentence: "Fast, fast, and faster along the tracks"
+            id: "Trn_02_13",
+            sentence: "As quickly as it started, the Caterpillar came to a stop."
         },
         {
-            id: "Trn_02_25",
-            sentence: "As quickly as it started,"
-        },
-        {
-            id: "Trn_02_26",
-            sentence: "The Caterpillar came to a stop."
-        },
-        {
-            id: "Trn_02_27",
+            id: "Trn_02_14",
             sentence: "Unfortunately, it was time to pack the car and drive home."
         },
         {
-            id: "Trn_02_28",
+            id: "Trn_02_15",
             sentence: "That night, I dreamt of the wild ride on the Caterpillar"
         },
         {
-            id: "Trn_02_29",
-            sentence: "Taking a trip to the amusement park and riding on the Caterpillar"
-        },
-        {
-            id: "Trn_02_30",
-            sentence: "Was my most memorable moment ever!"
+            id: "Trn_02_16",
+            sentence: "Taking a trip to the amusement park and riding on the Caterpillar was my most memorable moment ever!"
         },
         {
             id: "Trn_03_01",
@@ -132,278 +76,158 @@ export const sentences = {
         },
         {
             id: "Trn_03_02",
-            sentence: "Every morning, Megan opened the back door,"
+            sentence: "Every morning, Megan opened the back door, and Snowball dashed outside."
         },
         {
             id: "Trn_03_03",
-            sentence: "and Snowball dashed outside."
+            sentence: "The little cat chased butterflies, sniffed flowers, and climbed the old oak tree."
         },
         {
             id: "Trn_03_04",
-            sentence: "The little cat chased butterflies, sniffed flowers,"
+            sentence: "Megan often called Snowball her “explorer” because she loved to investigate every corner of the yard."
         },
         {
             id: "Trn_03_05",
-            sentence: "and climbed the old oak tree."
+            sentence: "One day, a squirrel darted across the lawn. Snowball froze."
         },
         {
             id: "Trn_03_06",
-            sentence: "Megan often called Snowball her “explorer”"
+            sentence: "The squirrel stopped too, holding an acorn in its tiny paws."
         },
         {
             id: "Trn_03_07",
-            sentence: "because she loved to investigate every corner of the yard."
+            sentence: "Megan watched from the window, curious to see what would happen."
         },
         {
             id: "Trn_03_08",
-            sentence: "One day, a squirrel darted across the lawn."
+            sentence: "After a long pause, Snowball jumped forward, but the squirrel was faster."
         },
         {
             id: "Trn_03_09",
-            sentence: "Snowball froze."
-        },
-        {
-            id: "Trn_03_10",
-            sentence: "The squirrel stopped too,"
-        },
-        {
-            id: "Trn_03_11",
-            sentence: "holding an acorn in its tiny paws."
-        },
-        {
-            id: "Trn_03_12",
-            sentence: "Megan watched from the window,"
-        },
-        {
-            id: "Trn_03_13",
-            sentence: "curious to see what would happen."
-        },
-        {
-            id: "Trn_03_14",
-            sentence: "After a long pause, Snowball jumped forward,"
-        },
-        {
-            id: "Trn_03_15",
-            sentence: "but the squirrel was faster."
-        },
-        {
-            id: "Trn_03_16",
             sentence: "It ran up the tree and disappeared into the branches."
         },
         {
-            id: "Trn_03_17",
+            id: "Trn_03_10",
             sentence: "Snowball meowed loudly, staring after it."
         },
         {
-            id: "Trn_03_18",
-            sentence: "A moment later, she darted back to Megan"
+            id: "Trn_03_11",
+            sentence: "A moment later, she darted back to Megan and curled up in her lap, playing with her blanket."
         },
         {
-            id: "Trn_03_19",
-            sentence: "and curled up in her lap, playing with her blanket."
+            id: "Trn_03_12",
+            sentence: "Megan laughed and said, “Your playfulness never ends, Snowball!”"
         },
         {
-            id: "Trn_03_20",
-            sentence: "Megan laughed and said,"
+            id: "Trn_03_13",
+            sentence: "She patted her gently and added, “Maybe next time you'll catch that squirrel.”"
         },
         {
-            id: "Trn_03_21",
-            sentence: "“Your playfulness never ends, Snowball!”"
-        },
-        {
-            id: "Trn_03_22",
-            sentence: "She patted her gently and added,"
-        },
-        {
-            id: "Trn_03_23",
-            sentence: "“Maybe next time you'll catch that squirrel.”"
-        },
-        {
-            id: "Trn_03_24",
+            id: "Trn_03_14",
             sentence: "Snowball purred contentedly, resting her head on Megan's arm."
         },
         {
             id: "Trn_04_01",
-            sentence: "Every summer, Jake and his friends"
+            sentence: "Every summer, Jake and his friends visited the lake near his grandfather's cabin."
         },
         {
             id: "Trn_04_02",
-            sentence: "visited the lake near his grandfather's cabin."
+            sentence: "The water sparkled under the bright sun, and the tall trees swayed gently in the breeze."
         },
         {
             id: "Trn_04_03",
-            sentence: "The water sparkled under the bright sun,"
-        },
-        {
-            id: "Trn_04_04",
-            sentence: "and the tall trees swayed gently in the breeze."
-        },
-        {
-            id: "Trn_04_05",
             sentence: "One afternoon, Jake decided to go fishing."
         },
         {
+            id: "Trn_04_04",
+            sentence: "He grabbed a rod, bait, and bucket, then walked to the dock."
+        },
+        {
+            id: "Trn_04_05",
+            sentence: "Sitting quietly, he cast his line into the water and waited and waited and waited."
+        },
+        {
             id: "Trn_04_06",
-            sentence: "He grabbed a rod, bait, and bucket,"
+            sentence: "Suddenly, the rod jerked. Jake pulled hard, and a shiny fish wriggled at the end of the line."
         },
         {
             id: "Trn_04_07",
-            sentence: "then walked to the dock."
+            sentence: "He shouted, “I caught one!” His friends ran over to see, cheering loudly."
         },
         {
             id: "Trn_04_08",
-            sentence: "Sitting quietly, he cast his line into the water"
-        },
-        {
-            id: "Trn_04_09",
-            sentence: "and waited and waited and waited."
-        },
-        {
-            id: "Trn_04_10",
-            sentence: "Suddenly, the rod jerked."
-        },
-        {
-            id: "Trn_04_11",
-            sentence: "Jake pulled hard,"
-        },
-        {
-            id: "Trn_04_12",
-            sentence: "and a shiny fish wriggled at the end of the line."
-        },
-        {
-            id: "Trn_04_13",
-            sentence: "He shouted, “I caught one!”"
-        },
-        {
-            id: "Trn_04_14",
-            sentence: "His friends ran over to see, cheering loudly."
-        },
-        {
-            id: "Trn_04_15",
             sentence: "Jake carefully placed the fish in the bucket."
         },
         {
-            id: "Trn_04_16",
-            sentence: "“Maybe next time, I'll catch a bigger one,”"
+            id: "Trn_04_09",
+            sentence: "“Maybe next time, I'll catch a bigger one,” he said with a grin."
         },
         {
-            id: "Trn_04_17",
-            sentence: "he said with a grin."
+            id: "Trn_04_10",
+            sentence: "Later that day, Jake returned to the cabin and told his grandfather about the fish."
         },
         {
-            id: "Trn_04_18",
-            sentence: "Later that day, Jake returned to the cabin"
+            id: "Trn_04_11",
+            sentence: "His grandfather smiled and said, “You've got the makings of a great fisherman!”"
         },
         {
-            id: "Trn_04_19",
-            sentence: "and told his grandfather about the fish."
-        },
-        {
-            id: "Trn_04_20",
-            sentence: "His grandfather smiled and said,"
-        },
-        {
-            id: "Trn_04_21",
-            sentence: "“You've got the makings of a great fisherman!”"
-        },
-        {
-            id: "Trn_04_22",
-            sentence: "Jake beamed proudly,"
-        },
-        {
-            id: "Trn_04_23",
-            sentence: "excited to fish again tomorrow."
+            id: "Trn_04_12",
+            sentence: "Jake beamed proudly, excited to fish again tomorrow."
         },
         {
             id: "Trn_07_01",
-            sentence: "On a bright Saturday afternoon,"
+            sentence: "On a bright Saturday afternoon, Lucas went to the park with his family."
         },
         {
             id: "Trn_07_02",
-            sentence: "Lucas went to the park with his family."
+            sentence: "As he walked through the grass, he saw a large, colorful kite soaring high in the sky."
         },
         {
             id: "Trn_07_03",
-            sentence: "As he walked through the grass,"
-        },
-        {
-            id: "Trn_07_04",
-            sentence: "he saw a large, colorful kite soaring high in the sky."
-        },
-        {
-            id: "Trn_07_05",
             sentence: "It was bright red with a long, yellow tail that flapped in the wind."
         },
         {
+            id: "Trn_07_04",
+            sentence: "Lucas watched in awe as the kite danced above the trees, its tail twisting and turning with each gust of wind."
+        },
+        {
+            id: "Trn_07_05",
+            sentence: "Curious, he walked closer and saw a boy standing near the edge of the field, holding the string of the kite."
+        },
+        {
             id: "Trn_07_06",
-            sentence: "Lucas watched in awe as the kite danced above the trees,"
+            sentence: `"Want to give it a try?" the boy asked, smiling.`
         },
         {
             id: "Trn_07_07",
-            sentence: "its tail twisting and turning with each gust of wind."
-        },
-        {
-            id: "Trn_07_08",
-            sentence: "Curious, he walked closer"
-        },
-        {
-            id: "Trn_07_09",
-            sentence: "and saw a boy standing near the edge of the field,"
-        },
-        {
-            id: "Trn_07_10",
-            sentence: "holding the string of the kite."
-        },
-        {
-            id: "Trn_07_11",
-            sentence: "“Want to give it a try?” the boy asked, smiling."
-        },
-        {
-            id: "Trn_07_12",
             sentence: "Lucas nodded eagerly, his heart racing with excitement."
         },
         {
+            id: "Trn_07_08",
+            sentence: "He gripped the string tightly as the wind tugged, lifting the kite even higher into the air."
+        },
+        {
+            id: "Trn_07_09",
+            sentence: `“Hold it steady," the boy said, giving Lucas a few tips.`
+        },
+        {
+            id: "Trn_07_10",
+            sentence: `As the kite soared gracefully, Lucas heard the chirping of birds and the sharp "shh" of the trees swaying in the breeze.`
+        },
+        {
+            id: "Trn_07_11",
+            sentence: `Suddenly, a jet flew overhead with a loud "whoosh, " its engines roaring like thunder.`
+        },
+        {
+            id: "Trn_07_12",
+            sentence: `"That was amazing!" Lucas exclaimed.`
+        },
+        {
             id: "Trn_07_13",
-            sentence: "He gripped the string tightly as the wind tugged,"
+            sentence: "The boy laughed and said, “Come back tomorrow, and we can fly it again."
         },
         {
             id: "Trn_07_14",
-            sentence: "lifting the kite even higher into the air."
-        },
-        {
-            id: "Trn_07_15",
-            sentence: "“Hold it steady,” the boy said, giving Lucas a few tips."
-        },
-        {
-            id: "Trn_07_16",
-            sentence: "As the kite soared gracefully, Lucas heard the chirping of birds"
-        },
-        {
-            id: "Trn_07_17",
-            sentence: "and the sharp 'shh' of the trees swaying in the breeze."
-        },
-        {
-            id: "Trn_07_18",
-            sentence: "Suddenly, a jet flew overhead with a loud 'whoosh,'"
-        },
-        {
-            id: "Trn_07_19",
-            sentence: "its engines roaring like thunder."
-        },
-        {
-            id: "Trn_07_20",
-            sentence: "“That was amazing!” Lucas exclaimed."
-        },
-        {
-            id: "Trn_07_21",
-            sentence: "The boy laughed and said,"
-        },
-        {
-            id: "Trn_07_22",
-            sentence: "“Come back tomorrow, and we can fly it again."
-        },
-        {
-            id: "Trn_07_23",
             sentence: "We might even try a bigger kite and maybe chase a few more birds!”"
         }
     ],
@@ -1194,7 +1018,7 @@ export const sentences = {
         },
         {
             id: "EFF24",
-            sentence: "David does not discuss the hug"
+            sentence: "David does not discuss the hug."
         },
         {
             id: "EFF25",
@@ -1214,7 +1038,7 @@ export const sentences = {
         },
         {
             id: "EFF29",
-            sentence: "Mr. Black knew about the pad"
+            sentence: "Mr. Black knew about the pad."
         },
         {
             id: "EFF30",
@@ -1250,7 +1074,7 @@ export const sentences = {
         },
         {
             id: "EFF38",
-            sentence: "We saw a flock of wild geese"
+            sentence: "We saw a flock of wild geese."
         },
         {
             id: "EFF39",
@@ -1262,7 +1086,7 @@ export const sentences = {
         },
         {
             id: "EFF41",
-            sentence: "She cooked him a hardy meal."
+            sentence: "She cooked him a hearty meal."
         },
         {
             id: "EFF42",
@@ -1322,7 +1146,7 @@ export const sentences = {
         },
         {
             id: "EFF56",
-            sentence: "We could dicuss the dust."
+            sentence: "We could discuss the dust."
         },
         {
             id: "EFF57",
@@ -1346,7 +1170,7 @@ export const sentences = {
         },
         {
             id: "EFF62",
-            sentence: "Instead of a fence plant a hedge."
+            sentence: "Instead of a fence, plant a hedge."
         },
         {
             id: "EFF63",
@@ -1390,7 +1214,7 @@ export const sentences = {
         },
         {
             id: "EFF73",
-            sentence: "Keep your broken arm in sling."
+            sentence: "Keep your broken arm in a sling."
         },
         {
             id: "EFF74",
@@ -1402,7 +1226,7 @@ export const sentences = {
         },
         {
             id: "EFF76",
-            sentence: "He heard they called about lanes."
+            sentence: "He heard they called about the lanes."
         },
         {
             id: "EFF77",
