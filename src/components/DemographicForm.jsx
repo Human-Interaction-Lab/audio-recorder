@@ -21,7 +21,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     medicationToday: '',
     dbs: '',
     speechTherapy: '',
-    hearingTested: '', // Options: 'screened', 'threshold', 'not_tested'
+    hearingTested: '', // Options: 'screened', 'threshold', 'not_tested', 'not_tested_hearing_aids'
     hearingScreenResult: '', // Options: 'pass', 'fail', null
     hearingThresholds: {
       right: {
@@ -609,6 +609,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
               <option value="screened">Hearing Screened</option>
               <option value="threshold">Full Threshold Testing</option>
               <option value="not_tested">Hearing Not Tested</option>
+              <option value="not_tested_hearing_aids">Hearing Not Tested (Wearing Hearing Aids)</option>
             </select>
           </div>
 
