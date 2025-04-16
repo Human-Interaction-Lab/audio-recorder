@@ -1278,7 +1278,7 @@ export const sentences = {
         },
         {
             id: "EFF89",
-            sentence: "He's thinking the roar."
+            sentence: "He's thinking about the roar."
         },
         {
             id: "EFF90",
