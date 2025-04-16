@@ -206,7 +206,11 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
       };
 
       mediaRecorderRef.current.start();
-      setRecording(true);
+      
+      // Add delay before showing recording UI
+      setTimeout(() => {
+        setRecording(true);
+      }, 500); // 500ms delay
     } catch (err) {
       console.error('Error accessing microphone:', err);
       setStatus('error');
