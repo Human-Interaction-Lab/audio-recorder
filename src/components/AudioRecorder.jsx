@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Mic, Square, Play, AlertTriangle, Folder, Check, ChevronUp, ChevronDown } from 'lucide-react';
+import { Mic, Square, Play, AlertTriangle, Folder, Check, ChevronUp, ChevronDown, Loader2 } from 'lucide-react';
 import { sentences } from './sentences';
 import { saveProgress, loadProgress } from './progressUtils';
 
@@ -13,6 +13,7 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
   const [userId, setUserId] = useState(initialUserId || '');
   const [directoryName, setDirectoryName] = useState(initialDirectoryHandle?.name || '');
   const [recording, setRecording] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const [currentSentence, setCurrentSentence] = useState(0);
   // const [browserSupported, setBrowserSupported] = useState(true);
@@ -152,6 +153,7 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
     try {
       setStatus('recording');
       setError(null);
+      setLoading(true);
 
       // Check for required inputs
       if (!userId.trim()) {
@@ -209,10 +211,12 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
       
       // Add delay before showing recording UI
       setTimeout(() => {
+        setLoading(false);
         setRecording(true);
       }, 500); // 500ms delay
     } catch (err) {
       console.error('Error accessing microphone:', err);
+      setLoading(false);
       setStatus('error');
       setError(err.message || 'Failed to start recording');
     }
@@ -422,13 +426,16 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
       <div className="flex justify-center space-x-4">
         <button
           onClick={recording ? stopRecording : startRecording}
-          disabled={!userId || !directoryName}
-          className={`p-4 rounded-full ${recording
-            ? 'bg-red-500 hover:bg-red-600'
-            : 'bg-blue-500 hover:bg-blue-600'
-            } text-white disabled:opacity-50`}
+          disabled={!userId || !directoryName || loading}
+          className={`p-4 rounded-full ${
+            recording
+              ? 'bg-red-500 hover:bg-red-600'
+              : loading
+                ? 'bg-gray-400'
+                : 'bg-blue-500 hover:bg-blue-600'
+          } text-white disabled:opacity-50`}
         >
-          {recording ? <Square size={24} /> : <Mic size={24} />}
+          {recording ? <Square size={24} /> : loading ? <Loader2 size={24} className="animate-spin" /> : <Mic size={24} />}
         </button>
 
         {audioBlob && recordedSentences.has(currentSentenceData?.id) && (
