@@ -21,6 +21,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
     medicationToday: '',
     dbs: '',
     speechTherapy: '',
+    hearingAids: '', // Yes/No question for hearing aids
     hearingTested: '', // Options: 'screened', 'threshold', 'not_tested', 'not_tested_hearing_aids'
     hearingScreenResult: '', // Options: 'pass', 'fail', null
     hearingThresholds: {
@@ -168,7 +169,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
       const csvContent = [
         'User ID,Date of Birth,Ethnicity,Race,Sex at Birth,Parkinsons Disease,' +
         'Diagnosis Year,Medication,Medication Today,Deep Brain Stimulation,Speech Therapy,' +
-        'Hearing Tested,Hearing Screen Result,' +
+        'Hearing Aids,Hearing Tested,Hearing Screen Result,' +
         'R250Hz,R500Hz,R1000Hz,R2000Hz,R4000Hz,R8000Hz,' +
         'L250Hz,L500Hz,L1000Hz,L2000Hz,L4000Hz,L8000Hz,' +
         'Talking with Known People,Communicating Quickly,Talking with Unknown People,' +
@@ -180,7 +181,7 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
         `${formData.sexAtBirth},${formData.parkinsonsDisease},` +
         `${formData.diagnosisYear},${formData.medication},${formData.medicationToday},` +
         `${formData.dbs},${formData.speechTherapy},` +
-        `${formData.hearingTested},${formData.hearingScreenResult},` +
+        `${formData.hearingAids},${formData.hearingTested},${formData.hearingScreenResult},` +
         `${formData.hearingThresholds.right.hz250},${formData.hearingThresholds.right.hz500},` +
         `${formData.hearingThresholds.right.hz1000},${formData.hearingThresholds.right.hz2000},` +
         `${formData.hearingThresholds.right.hz4000},${formData.hearingThresholds.right.hz8000},` +
@@ -593,6 +594,24 @@ const DemographicForm = ({ onComplete, directoryHandle: initialDirectoryHandle }
         {/* Hearing Section */}
         <div className="mt-8 space-y-6">
           <h2 className="text-xl font-bold">Hearing Assessment</h2>
+
+          {/* Hearing Aids */}
+          <div className="space-y-2">
+            <label className="block text-sm font-medium">
+              Do you wear hearing aids?
+            </label>
+            <select
+              name="hearingAids"
+              value={formData.hearingAids}
+              onChange={handleInputChange}
+              required
+              className="w-full p-2 border rounded"
+            >
+              <option value="">Select answer</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
 
           <div className="space-y-2">
             <label className="block text-sm font-medium">
