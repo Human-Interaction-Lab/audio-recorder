@@ -107,7 +107,7 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
                 onClick={() => jumpToSentence(sentence.id)}
                 className="w-full px-4 py-2 text-left hover:bg-gray-100 text-sm"
               >
-                {sentence.id}: {sentence.sentence.substring(0, 25)}...
+                {sentence.id}
               </button>
             ))}
           </div>
@@ -419,7 +419,7 @@ const AudioRecorder = ({ initialUserId, initialDirectoryHandle }) => {
           )}
         </div>
         <p className="mt-2 text-sm text-gray-500">ID: {currentSentenceData?.id}</p>
-        <p className="mt-3 text-3xl">{currentSentenceData?.sentence}</p>
+        <p className="mt-3 text-3xl">{recording ? currentSentenceData?.sentence : ""}</p>
       </div>
 
       {/* Recording Controls */}
